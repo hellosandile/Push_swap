@@ -44,12 +44,12 @@ int			ft_dup(stack_a *head)
 {
 	stack_a *c; // means current 
 	stack_a	*ptr;
-	int		size;
+	//int		size;
 	int		val;
 
 	ptr = head;
 	val = ptr->v;
-	size = ft_list_size(ptr);// Not needed as we know the size from ft_list.c
+	//size = ft_list_size(ptr);// Not needed as we know the size from ft_list.c
 	while (ptr->next != NULL)
 	{
 		c = ptr;

@@ -17,7 +17,7 @@ void		ft_generate_a(stack_a *a, stack_b *b, int *size)
 		if (ft_is_bigger(&a, *size))
 		{
 			ft_putendl("ra");
-			//ft_shift_a(&a, *size);
+			ft_shift_a(&a, *size);
 		}
 		else if (ft_first_state(a))
 		{
