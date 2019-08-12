@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: samkhize <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/08/12 14:20:19 by samkhize          #+#    #+#              #
+#    Updated: 2019/08/12 14:20:21 by samkhize         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CHECKER = checker
 
 PUSH_SWAP = push_swap
@@ -18,7 +30,7 @@ SRC_OBJ = ft_swap.c ft_push.c ft_rotate.c ft_reverse.c \
 
 OBJ_SRC = $(SRC_OBJ:.c=.o)
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -g -Wall -Werror -Wextra
 
 $(CHECKER) : 
 		gcc $(FLAGS) -c $(SRC)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/12 14:12:19 by samkhize          #+#    #+#             */
+/*   Updated: 2019/08/12 14:19:45 by samkhize         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int		main(int c, char **argv)
@@ -29,7 +41,8 @@ int		main(int c, char **argv)
 			// Here we are reading instructions from the stdin using fd 0
 			while (get_next_line(0, &instr) == 1)
 			{
-				if (i == 1 && ft_strlen(instr) > 2) // must be 2 bcuz instrunctions from PDF has a min of of 2 in the instruction
+				if (i == 1 && ft_strlen(instr) > 2) // must be 2 bcuz 
+					//instrunctions from PDF has a min of 2 in the instruction
 				{
 					if (ft_handle_instr(ft_instr(instr)))
 					{
@@ -45,7 +58,8 @@ int		main(int c, char **argv)
 						return (0);
 					}
 				}
-				ft_putendl(instr); // not neccessary since this only shows the instrunctions
+				ft_putendl(instr); // not neccessary since this only shows 
+				//					the instrunctions
 				ft_follow(&stack, &temp, instr, &size);
 				i++;
 			}

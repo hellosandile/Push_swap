@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_handle_errors.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/12 14:30:32 by samkhize          #+#    #+#             */
+/*   Updated: 2019/08/12 14:30:34 by samkhize         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 //The error is print on the fd because of the instruction on the PDF
 int			ft_handle(stack_a *head, char **stack, int *size)
