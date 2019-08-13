@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:48 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/12 14:20:52 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/13 15:44:10 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,18 @@ int			ft_dup(stack_a *head)
 	int		val;
 
 	ptr = head;
-	val = ptr->v;
+	val = ptr->data;
 	while (ptr->next != NULL)
 	{
 		c = ptr;
 		while (c->next != NULL)
 		{
-			if (c->next->v == val)
+			if (c->next->data == val)
 				return (1);
 			c = c->next;
 		}
 		ptr = ptr->next; //This is how you incrememnt with lists
-		val = ptr->v;
+		val = ptr->data;
 	}
 	return (0);
 }

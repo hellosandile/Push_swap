@@ -6,14 +6,31 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:31 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/12 15:52:10 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/13 15:44:56 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
+#include <stdlib.h>
 
+//Utility function to add an element size in the stach
+void	push(struct node **head, int size)
+{
+	struct node* node = NULL;
+	node = (struct node*)malloc(sizeof(struct node));
 
-create a main that will take in the ints on the stack
+	if (!node)
+	{
+		printf("Heap Overflow\n");
+		exit (0);
+	}
+	node->data = size;
+	node->next = *head;
+	*head = node;
+}
+
+//!!!create a main that will take in the ints on the stack
 
 
 /* sorting algorithm for 3 numbers
@@ -29,3 +46,5 @@ create a main that will take in the ints on the stack
  *
  * if head is small & tail < middle
  * 		rotate
+ *
+ */

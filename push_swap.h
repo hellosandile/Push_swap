@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:39:38 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/12 14:39:42 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/13 15:43:08 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct	node
 {
-	int			v; // normally is the data of the list
+	int			data; // normally is the data of the list
 	int			p; // is the position/address but understand
 	struct node	*next;
 }				stack_a, stack_b;
@@ -58,5 +58,7 @@ int			ft_is_less(struct node **head);
 int			ft_first_state(struct node *head);
 int			ft_is_bigger(struct node **head, int s);
 int			ft_sorted_desc(stack_b *head);
+
+void		push(struct node **head, int v);
 
 #endif

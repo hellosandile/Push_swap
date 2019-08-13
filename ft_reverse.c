@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:36:30 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/12 14:38:32 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/13 15:40:06 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		ft_reverse_a(stack_a **a, int s)
 	{
 		while (s-- > 1)
 			ptr = ptr->next;
-		ft_add_first(&*a, ptr->v);
+		ft_add_first(&*a, ptr->data);
 		ft_remove_last(&ptr, s);
 	}
 }
@@ -35,7 +35,7 @@ void		ft_reverse_b(stack_b **b, int s)
 	{
 		while (s-- > 1)
 			ptr = ptr->next;
-		ft_add_first(&*b, ptr->v);
+		ft_add_first(&*b, ptr->data);
 		ft_remove_last(&ptr, s);
 	}
 }

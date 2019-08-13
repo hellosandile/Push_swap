@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:39:03 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/12 14:39:18 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/13 15:41:49 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			ft_sorted(stack_a *head)
 
 	size = 0;
 	ptr = head;
-	val = ptr->v;
+	val = ptr->data;
 	size = ft_list_size(head);
 	if (size > 0)
 	{
@@ -30,14 +30,14 @@ int			ft_sorted(stack_a *head)
 			c = ptr;
 			while (c->next != NULL)
 			{
-				if (c->v < val)
+				if (c->data < val)
 				{
 					return (0);
 				}
 				c = c->next;
 			}
 			ptr = ptr->next;
-			val = ptr->v;
+			val = ptr->data;
 		}
 	}
 	else
@@ -59,19 +59,19 @@ int			ft_sorted_desc(stack_b *head)
 	{
 		if (size > 0)
 		{
-			v = ptr->v;
+			v = ptr->data;
 			while (size-- > 1)
 			{
 				c = ptr->next;
 				i = size;
 				while (i-- > 1)
 				{
-					if (c->v > v)
+					if (c->data > v)
 						return (0);
 					c = c->next;
 				}
 				ptr = ptr->next;
-				v = ptr->v;
+				v = ptr->data;
 			}
 		}
 	}

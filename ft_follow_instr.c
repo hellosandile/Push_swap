@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:30:22 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/12 14:30:24 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/13 15:37:06 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		ft_print(struct node **head, int size)
 	{
 		while (size-- > 0)
 		{
-			ft_putstr(ft_itoa(current->v));
+			ft_putstr(ft_itoa(current->data));
 			ft_putchar('\t');
 			current = current->next;
 		}

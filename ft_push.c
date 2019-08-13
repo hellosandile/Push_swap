@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:33:09 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/12 14:33:24 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/13 15:43:50 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		ft_push_a(stack_a **a, stack_b **b, int *s)
 	{
 		pb = b;
 		pa = malloc(sizeof(stack_a));
-		pa->v = (*pb)->v;
+		pa->data = (*pb)->data;
 		pa->p = (*pb)->p;
 		pa->next = *a;
 		*a = pa;
@@ -46,7 +46,7 @@ void		ft_push_b(stack_a **a, stack_b **b, int *s)
 	{
 		pa = a;
 		pb = malloc(sizeof(stack_b));
-		pb->v = (*pa)->v;
+		pb->data = (*pa)->data;
 		pb->p = (*pa)->p;
 		pb->next = *b;
 		*b = pb;

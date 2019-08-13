@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:30:41 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/12 14:32:23 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/13 15:38:26 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		ft_add_first(struct node **head, int value)
 	struct node *item;
 
 	item = malloc(sizeof(struct node));
-	item->v = value;
+	item->data = value;
 	item->p = 0;
 	item->next = *head;
 	*head = item;
@@ -92,7 +92,7 @@ void		ft_populate(stack_a *head, char **stack, int *size)
 	ptr = head;
 	if (ptr != NULL)
 	{
-		ptr->v = ft_atoi(stack[i]); //first value of the stack
+		ptr->data = ft_atoi(stack[i]); //first value of the stack
 		ptr->p = i;
 		ptr->next = NULL;
 		i++;
@@ -103,7 +103,7 @@ void		ft_populate(stack_a *head, char **stack, int *size)
 	ptr->next = malloc(sizeof(stack_a)); //allocating space for the next value
 	while (stack[i])
 	{
-		ptr->next->v = ft_atoi(stack[i]);
+		ptr->next->data = ft_atoi(stack[i]);
 		ptr->next->p = i;
 		ptr->next->next = malloc(sizeof(stack_a));
 		ptr = ptr->next;

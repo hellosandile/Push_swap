@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:39:26 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/12 14:39:27 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/13 15:42:42 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void		ft_swap_a(stack_a **a, int s)
 	size = s;
 	if (size > 1 && (*ptr)->next != NULL)
 	{
-		temp = (*ptr)->v;
-		(*ptr)->v = (*ptr)->next->v;
-		(*ptr)->next->v = temp;
+		temp = (*ptr)->data;
+		(*ptr)->data = (*ptr)->next->data;
+		(*ptr)->next->data = temp;
 	}
 }
 
@@ -37,9 +37,9 @@ void		ft_swap_b(stack_b **b)
 	if (stack_b_size("") > 1)
 	{
 		ptr = b;
-		temp = (*ptr)->v;
-		(*ptr)->v = (*ptr)->next->v;
-		(*ptr)->next->v = temp;
+		temp = (*ptr)->data;
+		(*ptr)->data = (*ptr)->next->data;
+		(*ptr)->next->data = temp;
 	}
 }
 
