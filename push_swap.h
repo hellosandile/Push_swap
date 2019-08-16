@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:39:38 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/13 15:43:08 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/16 15:36:15 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct	node
 {
-	int			data; // normally is the data of the list
+	int			data;
 	int			p; // is the position/address but understand
 	struct node	*next;
 }				stack_a, stack_b;
