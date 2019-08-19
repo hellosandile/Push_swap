@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:39:38 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/19 11:28:48 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/19 15:26:00 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@ int			ft_is_bigger(struct node **head, int s);
 int			ft_sorted_desc(stack_b *head);
 
 void		ft_printlist(stack_a *head);
-void		initialize(stack_a **head, char **data);
+void		initialize(struct node **head, char **data);
+int 		get_tail(struct node **head);
+int			get_middle(struct node **head);
 
 
 #endif
