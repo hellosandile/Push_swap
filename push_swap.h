@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:39:38 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/16 15:36:15 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/19 11:28:48 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,14 @@ void		ft_add_first(struct node **head, int value);
 int			stack_b_size(char *oper);
 void		stack_a_size(int *size, char *oper);
 int			ft_sorted(stack_a *head);
-void		ft_generate_a(stack_a *a, stack_b *b, int *size);
 void		ft_generate_b(stack_a *a, stack_b *b, int *size);
 int			ft_is_less(struct node **head);
 int			ft_first_state(struct node *head);
 int			ft_is_bigger(struct node **head, int s);
 int			ft_sorted_desc(stack_b *head);
 
-void		push(struct node **head, int v);
+void		ft_printlist(stack_a *head);
+void		initialize(stack_a **head, char **data);
+
 
 #endif

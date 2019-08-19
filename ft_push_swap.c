@@ -6,12 +6,13 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:35:24 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/13 15:39:32 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/19 11:32:37 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
 int		main(int c, char **argv)
 {
 
@@ -35,10 +36,10 @@ int		main(int c, char **argv)
                 free(temp);
                 return(0);
             }
-			ft_generate_a(stack, temp, &size);
 		}
 	}
 	free(stack);
 	free(temp);
 	return (0);
 }
+*/
