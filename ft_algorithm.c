@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:31 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/19 15:42:59 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/20 13:59:11 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	initialize(struct node  **head, char **data)
 	stack->next = NULL;
 }
 
-
-
 //using this to print what is in my current stack_a
 void	ft_printlist(stack_a *head)
 {
@@ -53,23 +51,7 @@ void	ft_printlist(stack_a *head)
 	}
 }
 
-/*
-int		getnth(struct node **head, int tail)
-{
-	int count = 0;
-	struct node *stack;
-	stack = *head;
-	while (stack != NULL)
-	{
-		if (count == tail)
-			return (stack->data);
-	}
-	count++;
-	stack = stack->next;
-}
-*/
-
-int		get_tail(struct node **head)
+int		head_g_last(struct node **head)
 {
 	struct node *stack;
 	int 		head_value;
@@ -85,7 +67,7 @@ int		get_tail(struct node **head)
 	return (0);
 }
 
-int		get_middle(struct node **head)
+int		last_g_middle(struct node **head)
 {
 	struct node *stack;
 	int middle_value;
@@ -99,6 +81,50 @@ int		get_middle(struct node **head)
 	return 0;
 }
 
+int		middle_g_last(struct node **head)
+{
+	struct node *stack;
+	int middle_value;
+
+	stack = *head;
+	middle_value = stack->next->data;
+	while (stack->next != NULL)
+		stack = stack->next;
+	if (stack->data < middle_value)
+		return 1;
+	return 0;
+}
+
+int		head_g_middle(struct node **head)
+{
+	struct node *stack;
+	int		head_value;
+	int		middle_value;
+
+	stack = *head;
+	head_value = stack->data;
+	middle_value = stack->next->data;
+	if (head_value > middle_value)
+		return 1;
+	return 0;
+}
+
+int		stack_sorted(struct node **head)
+{
+	struct node *stack;
+	int		head_value;
+	int		middle_value;
+
+	stack = *head;
+	head_value = stack->data;
+	middle_value = stack->next->data;
+	while (stack->next != NULL)
+		stack = stack->next;
+	if (head_value < middle_value && head_value < stack->data &&
+			middle_value > head_value && middle_value < stack->data)
+		return 1;
+	return 0;
+}
 
 int main (int ac, char **av)
 {
@@ -113,9 +139,18 @@ int main (int ac, char **av)
 		initialize(&list, data);
 		ft_printlist(list);
 		printf("\n\n");
-		//printf("%d", get_middle(&list));
-		if (get_middle(&list) == 1)
-			ft_shift_a(&list, 2);
+		//printf("%d", last_g_midlle(&list));
+		while (stack_sorted(&list) != 1)
+		{
+			if (last_g_middle(&list) == 1 && head_g_last(&list) == 1)
+				ft_shift_a(&list, 2);
+			if (head_g_middle(&list) == 1)
+				ft_swap_a(&list, 2);
+			if (head_g_middle(&list) == 0 && last_g_middle(&list) == 0)
+				ft_shift_a(&list, 2);
+			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 1)
+				ft_shift_a(&list, 2);
+		}
 		ft_printlist(list);
 	}
 	free(list);
@@ -128,9 +163,9 @@ int main (int ac, char **av)
  * 		rotate
  *
  * if head > tail & tail  > middle
- * 		rotate
+ * 		rotate       ------- DONE!!!!
  *
- * if head > middle
+ * if head > middle   ------- DONE
  * 		swap
  *
  * if head is small & tail < middle

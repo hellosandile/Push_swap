@@ -6,7 +6,7 @@
 #    By: samkhize <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/19 14:13:56 by samkhize          #+#    #+#              #
-#    Updated: 2019/06/19 14:20:45 by samkhize         ###   ########.fr        #
+#    Updated: 2019/08/20 14:30:40 by samkhize         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,9 +86,5 @@ clean	:
 
 fclean	: clean
 		rm -f $(NAME)
-
-gclean	:
-		rm -f $(NAME)
-		rm -f $(OBJECTS)
 	
 re:	 fclean all
