@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:31 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/20 13:59:11 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/21 12:34:37 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,14 +142,32 @@ int main (int ac, char **av)
 		//printf("%d", last_g_midlle(&list));
 		while (stack_sorted(&list) != 1)
 		{
-			if (last_g_middle(&list) == 1 && head_g_last(&list) == 1)
-				ft_shift_a(&list, 2);
-			if (head_g_middle(&list) == 1)
-				ft_swap_a(&list, 2);
-			if (head_g_middle(&list) == 0 && last_g_middle(&list) == 0)
-				ft_shift_a(&list, 2);
+			// Make it more efficient
+			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0 && head_g_last(&list) == 1)
+			{
+				ft_reverse_a(&list, 3);
+				ft_putendl("rra");
+			}
 			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 1)
+			{
 				ft_shift_a(&list, 2);
+				ft_putendl("ra");
+			}
+			if (last_g_middle(&list) == 1 && head_g_last(&list) == 1)
+			{
+				ft_shift_a(&list, 2);
+				ft_putendl("ra");
+			}
+			if (head_g_middle(&list) == 1)
+			{
+				ft_swap_a(&list, 2);
+				ft_putendl("sa");
+			}
+			if (head_g_middle(&list) == 0 && last_g_middle(&list) == 0)
+			{
+				ft_swap_a(&list, 2);
+				ft_putendl("sa");
+			}
 		}
 		ft_printlist(list);
 	}
