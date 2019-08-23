@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:33:09 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/13 15:43:50 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/23 16:00:38 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		ft_push_a(stack_a **a, stack_b **b, int *s)
 		pb = b;
 		pa = malloc(sizeof(stack_a));
 		pa->data = (*pb)->data;
-		pa->p = (*pb)->p;
+		pa->next = (*pb)->next;
 		pa->next = *a;
 		*a = pa;
 		ft_remove_first(&*b); // It removes the first value that is being moved
@@ -40,19 +40,18 @@ void		ft_push_b(stack_a **a, stack_b **b, int *s)
 {
 	stack_a **pa;
 	stack_b *pb;
-	//int		size;
 
 	if (*s > 0)
 	{
 		pa = a;
 		pb = malloc(sizeof(stack_b));
 		pb->data = (*pa)->data;
-		pb->p = (*pa)->p;
 		pb->next = *b;
 		*b = pb;
 		ft_remove_first(&*a);
 		stack_a_size(s, "minus");
 		stack_b_size("add");
+		
 	}
 	return ;
 }

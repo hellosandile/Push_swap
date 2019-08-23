@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:31 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/21 12:34:37 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/23 16:10:22 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	initialize(struct node  **head, char **data)
 }
 
 //using this to print what is in my current stack_a
-void	ft_printlist(stack_a *head)
+void	ft_printlist(struct node *head)
 {
-	stack_a *stack;
+	struct node *stack;
 
 	stack = head;
 	while (stack != NULL)
@@ -71,6 +71,7 @@ int		last_g_middle(struct node **head)
 {
 	struct node *stack;
 	int middle_value;
+
 
 	stack = *head;
 	middle_value = stack->next->data;
@@ -130,27 +131,36 @@ int main (int ac, char **av)
 {
 	char **data;
 	stack_a *list;
+	stack_b *listb;
+	int		size = 2;
 
 	list = (stack_a *)malloc(sizeof(stack_a));
-	
+	listb = (stack_b *)malloc(sizeof(stack_b));
+	listb = NULL;
+
 	if (ac == 2)
 	{
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
-		ft_printlist(list);
-		printf("\n\n");
+		//ft_printlist(list);
+		//ft_printlist(listb);
+		//printf("\n");
 		//printf("%d", last_g_midlle(&list));
+		ft_push_b(&list, &listb, &size);
+		/*
 		while (stack_sorted(&list) != 1)
 		{
 			// Make it more efficient
 			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0 && head_g_last(&list) == 1)
 			{
-				ft_reverse_a(&list, 3);
+				//ft_reverse_a(&list, 3);
+				//ft_push_b(&list, &listb, &size);
 				ft_putendl("rra");
 			}
 			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 1)
 			{
 				ft_shift_a(&list, 2);
+				ft_push_b(&list, &listb, &size);
 				ft_putendl("ra");
 			}
 			if (last_g_middle(&list) == 1 && head_g_last(&list) == 1)
@@ -169,7 +179,11 @@ int main (int ac, char **av)
 				ft_putendl("sa");
 			}
 		}
+		*/
+		ft_printlist(listb);
+		printf("\n");
 		ft_printlist(list);
+		
 	}
 	free(list);
 	return (0);
