@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:31 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/23 16:10:22 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/28 16:55:14 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,6 @@ int main (int ac, char **av)
 	char **data;
 	stack_a *list;
 	stack_b *listb;
-	int		size = 2;
 
 	list = (stack_a *)malloc(sizeof(stack_a));
 	listb = (stack_b *)malloc(sizeof(stack_b));
@@ -142,25 +141,17 @@ int main (int ac, char **av)
 	{
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
-		//ft_printlist(list);
-		//ft_printlist(listb);
-		//printf("\n");
-		//printf("%d", last_g_midlle(&list));
-		ft_push_b(&list, &listb, &size);
-		/*
 		while (stack_sorted(&list) != 1)
 		{
-			// Make it more efficient
-			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0 && head_g_last(&list) == 1)
+			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0
+					&& head_g_last(&list) == 1)
 			{
-				//ft_reverse_a(&list, 3);
-				//ft_push_b(&list, &listb, &size);
+				ft_reverse_a(&list, 3);
 				ft_putendl("rra");
 			}
 			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 1)
 			{
 				ft_shift_a(&list, 2);
-				ft_push_b(&list, &listb, &size);
 				ft_putendl("ra");
 			}
 			if (last_g_middle(&list) == 1 && head_g_last(&list) == 1)
@@ -179,7 +170,6 @@ int main (int ac, char **av)
 				ft_putendl("sa");
 			}
 		}
-		*/
 		ft_printlist(listb);
 		printf("\n");
 		ft_printlist(list);
@@ -188,19 +178,3 @@ int main (int ac, char **av)
 	free(list);
 	return (0);
 }
-
-/* sorting algorithm for 3 numbers
- *
- * if tail is smallest & head is the biggest
- * 		rotate
- *
- * if head > tail & tail  > middle
- * 		rotate       ------- DONE!!!!
- *
- * if head > middle   ------- DONE
- * 		swap
- *
- * if head is small & tail < middle
- * 		rotate
- *
- */

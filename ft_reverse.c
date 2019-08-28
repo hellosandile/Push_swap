@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_reverse.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/12 14:36:30 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/13 15:40:06 by samkhize         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 void		ft_reverse_a(stack_a **a, int s)
@@ -19,10 +7,11 @@ void		ft_reverse_a(stack_a **a, int s)
 	ptr = *a;
 	if (s > 1)
 	{
-		while (s-- > 1)
+		while (s-- > 2)
 			ptr = ptr->next;
-		ft_add_first(&*a, ptr->data);
+		ft_add_first(a, ptr->next->data);
 		ft_remove_last(&ptr, s);
+		ptr->next = NULL;
 	}
 }
 
@@ -33,10 +22,11 @@ void		ft_reverse_b(stack_b **b, int s)
 	ptr = *b;
 	if (s > 1)
 	{
-		while (s-- > 1)
+		while (s-- > 2)
 			ptr = ptr->next;
-		ft_add_first(&*b, ptr->data);
+		ft_add_first(b, ptr->next->data);
 		ft_remove_last(&ptr, s);
+		ptr->next = NULL;
 	}
 }
 
