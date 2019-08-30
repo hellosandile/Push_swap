@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:31 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/29 13:54:39 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/08/30 14:13:50 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,21 @@ int		head_g_last(struct node **head)
 	if (head_value > stack->data) //head > tail
 		return (1);
 	return (0);
+}
+
+int		min(struct node **head)
+{
+	struct node *stack;
+	stack = *head;
+	int	min;
+	min = stack->data;
+	while (stack->next != NULL)
+	{
+		if (stack->data < min)
+			min = stack->data;
+		stack = stack->next;
+	}
+	return (min);
 }
 
 int		last(struct node **head)
