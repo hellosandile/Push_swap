@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:33:09 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/28 16:55:20 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/01 14:27:49 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void		ft_push_b(stack_a **a, stack_b **b, int *s)
 		ft_remove_first(&*a);
 		stack_a_size(s, "minus");
 		stack_b_size("add");
-		
 	}
 	return ;
 }

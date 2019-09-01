@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:38 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/30 14:26:20 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/01 14:28:55 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac , char **av)
 	char **data;
 	stack_a *list;
 	stack_b *listb;
-	//int size;
+	int size;
 	//stack_a *stack;
 
 	list = (stack_a *)malloc(sizeof(stack_a));
@@ -30,12 +30,28 @@ int	main(int ac , char **av)
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
 		
-		//while (list > 3)
+
+		// FIX PUSH_A & PUSH_B
+
+
+
+		ft_push_b(&list, &listb, &size);
+		/*
+		while (listsize(list) != 3)
 		{
-		if (list->data != min(&list))
-			ft_shift_a(&list, 2);
+			if (list->data != min(&list))
+			{
+				ft_shift_a(&list, 2);
+				ft_putendl("ra");
+			}
+			else if(list->data == min(&list))
+			{
+				ft_push_b(&list, &listb, &size);
+				ft_putendl("pb");
+				break ;
+			}
 		}
-	/*
+
 		while (stack_sorted(&list) != 1)
 		{
 			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0 && head_g_last(&list) == 1)
@@ -64,6 +80,7 @@ int	main(int ac , char **av)
 				ft_putendl("sa");
 			}
 		}
+		
 		//if (head_g_last(&listb) == 0)
 		//	ft_swap_b(&listb);
 		//if (listb->data > list->data && listb->data < list->next->data)
@@ -84,8 +101,8 @@ int	main(int ac , char **av)
 		//		ft_push_a(&list, &listb, &size);i
 		//} */
 	}
-	//ft_printlist(listb);
-	//printf("\n");
+	ft_printlist(listb);
+	printf("\n");
 	ft_printlist(list);
 
 	return 0;

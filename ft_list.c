@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:30:41 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/13 15:38:26 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/01 13:46:51 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,21 @@ int			ft_list_size(struct node *head)
 		}
 	}
 	return (len);
+}
+
+int		listsize(struct node *head)
+{
+	struct node *begin_list;
+	int i;
+
+	i = 0;
+	begin_list = head;
+	while (begin_list->next != NULL)
+	{
+		begin_list = begin_list->next;
+		i++;
+	}
+	return (i);
 }
 
 int			stack_b_size(char *oper)

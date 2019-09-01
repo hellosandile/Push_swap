@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:39:38 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/30 13:37:03 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/01 13:41:11 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ int			head_g_middle(struct node **head);
 int			stack_sorted(struct node **head);
 int			last(struct node **head);
 int			min(struct node **head);
+int			 listsize(struct node *head);
 
 #endif
