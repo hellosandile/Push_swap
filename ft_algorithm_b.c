@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:38 by samkhize          #+#    #+#             */
-/*   Updated: 2019/09/01 14:28:55 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/02 13:39:45 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac , char **av)
 	char **data;
 	stack_a *list;
 	stack_b *listb;
-	int size;
+	//int size;
 	//stack_a *stack;
 
 	list = (stack_a *)malloc(sizeof(stack_a));
@@ -29,26 +29,26 @@ int	main(int ac , char **av)
 	{
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
-		
 
-		// FIX PUSH_A & PUSH_B
-
-
-
-		ft_push_b(&list, &listb, &size);
+		if (last(&list) == min(&list))
+			ft_reverse_a(&list, 2);
 		/*
-		while (listsize(list) != 3)
+		while (listsize(list) > 3 && stacksorted(&list) == 0)
 		{
+			if (last(&list) == min(&list))
+			{
+				ft_reverse_a(&list, listsize(list));
+				ft_putendl("rra");
+			}
 			if (list->data != min(&list))
 			{
 				ft_shift_a(&list, 2);
 				ft_putendl("ra");
 			}
-			else if(list->data == min(&list))
+			else if (list->data == min(&list))
 			{
 				ft_push_b(&list, &listb, &size);
 				ft_putendl("pb");
-				break ;
 			}
 		}
 
@@ -80,26 +80,11 @@ int	main(int ac , char **av)
 				ft_putendl("sa");
 			}
 		}
-		
-		//if (head_g_last(&listb) == 0)
-		//	ft_swap_b(&listb);
-		//if (listb->data > list->data && listb->data < list->next->data)
-		//{
-		//	ft_push_a(&list, &listb, &size);
-		//	ft_swap_a(&list, 2);
-		//	ft_push_a(&list, &listb, &size);
-		//	ft_swap_a(&list, 2);
-		//}
-		//if (listb->data > list->next->next->data)
-		//{
-		//	ft_push_a(&list, &listb, &size);
-		//	ft_shift_a(&list, 2);
-		//}
-		//while (listb != NULL)
-		//{
-		//	if (listb->data < list->data)
-		//		ft_push_a(&list, &listb, &size);i
-		//} */
+		while (listsize(listb) > 0)
+		{
+			ft_push_a(&list, &listb, &size);
+			ft_putendl("pa");
+		} */
 	}
 	ft_printlist(listb);
 	printf("\n");
@@ -107,4 +92,3 @@ int	main(int ac , char **av)
 
 	return 0;
 }
-

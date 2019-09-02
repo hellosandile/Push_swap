@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:31 by samkhize          #+#    #+#             */
-/*   Updated: 2019/08/30 14:13:50 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/02 09:58:58 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,25 @@ int		stack_sorted(struct node **head)
 			middle_value > head_value && middle_value < stack->data)
 		return 1;
 	return 0;
+}
+
+int		stacksorted(struct node **head)
+{
+	//norm bitch =
+	struct node *a, *b;
+	a = *head;
+	while (a->next != NULL)
+	{
+		b = a->next;
+		while (b)
+		{
+			if (b->data < a->data)
+				return 0;
+			b = b->next;
+		}
+		a = a->next;
+	}
+	return 1;
 }
 /*
 int main (int ac, char **av)

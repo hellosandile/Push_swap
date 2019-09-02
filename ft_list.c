@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:30:41 by samkhize          #+#    #+#             */
-/*   Updated: 2019/09/01 13:46:51 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/02 09:15:14 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		listsize(struct node *head)
 
 	i = 0;
 	begin_list = head;
-	while (begin_list->next != NULL)
+	while (begin_list != NULL)
 	{
 		begin_list = begin_list->next;
 		i++;

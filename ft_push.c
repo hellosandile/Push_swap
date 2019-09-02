@@ -6,12 +6,12 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:33:09 by samkhize          #+#    #+#             */
-/*   Updated: 2019/09/01 14:27:49 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/02 08:55:30 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 
 //Check the PDF for instructions. Also check how this was done in other repos
 
@@ -21,7 +21,7 @@ void		ft_push_a(stack_a **a, stack_b **b, int *s)
 	stack_a **pb;
 	//int	size;
 
-	if (stack_b_size("") > 0)
+	if (b)
 	{
 		pb = b;
 		pa = malloc(sizeof(stack_a));
@@ -41,11 +41,12 @@ void		ft_push_b(stack_a **a, stack_b **b, int *s)
 	stack_a **pa;
 	stack_b *pb;
 
-	if (*s > 0)
+	if (a)
 	{
 		pa = a;
 		pb = malloc(sizeof(stack_b));
 		pb->data = (*pa)->data;
+		pb->next = (*pa)->next;
 		pb->next = *b;
 		*b = pb;
 		ft_remove_first(&*a);
