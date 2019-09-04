@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:39:38 by samkhize          #+#    #+#             */
-/*   Updated: 2019/09/02 09:56:27 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/04 14:10:21 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 #include "./get_next_line/get_next_line.h"
+#include <stdio.h>
 
 typedef struct	node
 {
@@ -26,8 +27,8 @@ void		ft_print(struct node **head, int size);
 int			ft_list_size(struct node *head);
 void		ft_swap_a(stack_a **a, int s);
 void		ft_swap_b(stack_b **b);
-void		ft_push_a(stack_a **a, stack_b **b, int *s);
-void		ft_push_b(stack_a **a, stack_b **b, int *s);
+void		ft_push_a(stack_a **a, stack_b **b);
+void		ft_push_b(stack_a **a, stack_b **b);
 void		ft_shift_a(stack_a **a, int s);
 void		ft_shift_b(stack_b **b, int s);
 void		ft_reverse_a(stack_a **a, int s);

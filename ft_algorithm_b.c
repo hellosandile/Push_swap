@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:38 by samkhize          #+#    #+#             */
-/*   Updated: 2019/09/02 13:39:45 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/04 14:26:45 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ int	main(int ac , char **av)
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
 
-		if (last(&list) == min(&list))
-			ft_reverse_a(&list, 2);
-		/*
 		while (listsize(list) > 3 && stacksorted(&list) == 0)
 		{
 			if (last(&list) == min(&list))
@@ -40,19 +37,18 @@ int	main(int ac , char **av)
 				ft_reverse_a(&list, listsize(list));
 				ft_putendl("rra");
 			}
-			if (list->data != min(&list))
+			 if (list->data != min(&list))
 			{
 				ft_shift_a(&list, 2);
 				ft_putendl("ra");
 			}
-			else if (list->data == min(&list))
+			if (list->data == min(&list))
 			{
-				ft_push_b(&list, &listb, &size);
+				ft_push_b(&list, &listb);
 				ft_putendl("pb");
 			}
 		}
-
-		while (stack_sorted(&list) != 1)
+		while (stacksorted(&list) != 1)
 		{
 			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0 && head_g_last(&list) == 1)
 			{
@@ -82,9 +78,9 @@ int	main(int ac , char **av)
 		}
 		while (listsize(listb) > 0)
 		{
-			ft_push_a(&list, &listb, &size);
+			ft_push_a(&list, &listb);
 			ft_putendl("pa");
-		} */
+		}
 	}
 	ft_printlist(listb);
 	printf("\n");

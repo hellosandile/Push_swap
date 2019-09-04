@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:31 by samkhize          #+#    #+#             */
-/*   Updated: 2019/09/02 09:58:58 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/04 10:24:54 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		min(struct node **head)
 	stack = *head;
 	int	min;
 	min = stack->data;
-	while (stack->next != NULL)
+	while (stack != NULL)
 	{
 		if (stack->data < min)
 			min = stack->data;

@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:33:09 by samkhize          #+#    #+#             */
-/*   Updated: 2019/09/02 08:55:30 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/04 14:24:50 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 //Check the PDF for instructions. Also check how this was done in other repos
 
-void		ft_push_a(stack_a **a, stack_b **b, int *s)
+void		ft_push_a(stack_a **a, stack_b **b)
 {
 	stack_a *pa;
-	stack_a **pb;
+	stack_b **pb;
 	//int	size;
 
 	if (b)
@@ -26,17 +26,16 @@ void		ft_push_a(stack_a **a, stack_b **b, int *s)
 		pb = b;
 		pa = malloc(sizeof(stack_a));
 		pa->data = (*pb)->data;
-		pa->next = (*pb)->next;
 		pa->next = *a;
 		*a = pa;
 		ft_remove_first(&*b); // It removes the first value that is being moved
-		stack_b_size("minus");
-		stack_a_size(s, "add");
+		//stack_b_size("minus");
+		//stack_a_size(s, "add");
 	}
 	return ;
 }
 
-void		ft_push_b(stack_a **a, stack_b **b, int *s)
+void		ft_push_b(stack_a **a, stack_b **b)
 {
 	stack_a **pa;
 	stack_b *pb;
@@ -46,19 +45,20 @@ void		ft_push_b(stack_a **a, stack_b **b, int *s)
 		pa = a;
 		pb = malloc(sizeof(stack_b));
 		pb->data = (*pa)->data;
-		pb->next = (*pa)->next;
 		pb->next = *b;
 		*b = pb;
-		ft_remove_first(&*a);
-		stack_a_size(s, "minus");
-		stack_b_size("add");
+		//ft_remove_first(&*a);
+		*a = (*a)->next; //need to delete the node being abandoned.
+		//stack_a_size(s, "minus");
+		//stack_b_size("add");
 	}
 	return ;
 }
 
 void		ft_push_both(stack_a **a, stack_b **b, int *s)
 {
-	ft_push_a(a, b, s);
-	ft_push_b(a, b, s);
+	*s = 0;
+	ft_push_a(a, b);
+	ft_push_b(a, b);
 	return ;
 }

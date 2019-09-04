@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:30:41 by samkhize          #+#    #+#             */
-/*   Updated: 2019/09/02 09:15:14 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/04 14:42:55 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ void		ft_remove_first(struct node **head)
 {
 	struct node	*ptr;
 
-	ptr = NULL;
 	ptr = (*head)->next;
 	*head = ptr;
+	// *head = (*head)->next;
 	return ;
 }
 
@@ -90,10 +90,13 @@ void		ft_remove_last(struct node **head, int s)
 {
 	struct node *ptr;
 
+	s = 0;
 	ptr = *head;
-	while (s-- > 1)
+	if (!(ptr->next))
+		return ; //if you want it to remove stuff length 1 put it here;
+	while (ptr->next->next) //go until 2nd last
 		ptr = ptr->next;
-	free(ptr);
+	free(ptr->next);
 	ptr->next = NULL;
 	return ;
 }

@@ -7,15 +7,15 @@ void		ft_reverse_a(stack_a **a, int s)
 	ptr = *a;
 	if (s > 1)
 	{
-		while (s-- > 2)
+		while (ptr->next)
 			ptr = ptr->next;
-		ft_add_first(a, ptr->next->data);
-		ft_remove_last(&ptr, s);
+		ft_add_first(a, ptr->data);
+		ft_remove_last(a, s);
 		ptr->next = NULL;
 	}
 }
 
-void		ft_reverse_b(stack_b **b, int s)
+void		ft_reverse_b(stack_b **b, int s)//fix as above
 {
 	stack_b *ptr;
 	
