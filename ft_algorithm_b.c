@@ -6,10 +6,10 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:38 by samkhize          #+#    #+#             */
-/*   Updated: 2019/09/04 14:26:45 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/05 14:18:32 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include "push_swap.h"
 #include <stdio.h>
 
@@ -82,9 +82,8 @@ int	main(int ac , char **av)
 			ft_putendl("pa");
 		}
 	}
-	ft_printlist(listb);
-	printf("\n");
 	ft_printlist(list);
 
 	return 0;
 }
+*/
