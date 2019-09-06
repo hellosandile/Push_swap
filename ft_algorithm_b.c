@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 14:20:38 by samkhize          #+#    #+#             */
-/*   Updated: 2019/09/05 14:18:32 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/09/06 13:14:32 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
@@ -30,7 +30,7 @@ int	main(int ac , char **av)
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
 
-		while (listsize(list) > 3 && stacksorted(&list) == 0)
+		while (listsize(list) > 3 && stacksorted(list) == 0)
 		{
 			if (last(&list) == min(&list))
 			{
@@ -48,7 +48,7 @@ int	main(int ac , char **av)
 				ft_putendl("pb");
 			}
 		}
-		while (stacksorted(&list) != 1)
+		while (stacksorted(list) != 1)
 		{
 			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0 && head_g_last(&list) == 1)
 			{
@@ -86,4 +86,5 @@ int	main(int ac , char **av)
 
 	return 0;
 }
+
 */
