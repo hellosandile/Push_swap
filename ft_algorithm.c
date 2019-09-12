@@ -28,7 +28,7 @@ void	initialize(struct node  **head, char **data)
 		stack = stack->next; // looping through the stack
 	stack->next =  malloc(sizeof(struct node));
 	i = 1;
-	while (data[i] != '\0')
+	while (data[i] != NULL)
 	{
 		stack->next->data =  ft_atoi(data[i]);
 		stack->next->next = (struct node *)malloc(sizeof(struct node));
@@ -65,6 +65,23 @@ int		head_g_last(struct node **head)
 	if (head_value > stack->data) //head > tail
 		return (1);
 	return (0);
+}
+
+
+int		max(struct node **head)
+{
+	struct node *stack;
+	stack = *head;
+	int	max;
+	max = stack->data;
+	while (stack != NULL)
+	{
+		if (max < stack->data)
+			max = stack->data;
+		stack = stack->next;
+	}
+	return (max);
+
 }
 
 int		min(struct node **head)
@@ -153,18 +170,27 @@ int		stack_sorted(struct node **head)
 
 int		stacksorted(struct node *head)
 {
-	//norm bitch =
 	struct node *a, *b;
 	a = head;
 	while (a->next != NULL)
 	{
 		b = a->next;
-		//while (b)
-		//{
-			if (b->data < a->data)
-				return 0;
-			//b = b->next;
-		//}
+		if (b->data < a->data)
+			return 0;
+		a = a->next;
+	}
+	return 1;
+}
+
+int		desc_stacksorted(struct node *head)
+{
+	struct node *a, *b;
+	a = head;
+	while (a->next != NULL)
+	{
+		b = a->next;
+		if (b->data > a->data)
+			return 0;
 		a = a->next;
 	}
 	return 1;

@@ -48,7 +48,7 @@ int			ft_handle_instr(char *instr);
 void		ft_follow(stack_a **a, stack_b **b, char *instr, int *s);
 void		ft_remove_first(struct node **head);
 char		*ft_instr(char *str);
-void		ft_remove_last(struct node **head, int s);
+void		ft_remove_last(struct node **head);
 void		ft_add_first(struct node **head, int value);
 int			stack_b_size(char *oper);
 void		stack_a_size(int *size, char *oper);
@@ -68,7 +68,9 @@ int			head_g_middle(struct node **head);
 int			stack_sorted(struct node **head);
 int			last(struct node **head);
 int			min(struct node **head);
+int			max(struct node **head);
 int			 listsize(struct node *head);
 int			stacksorted(struct node *head);
+int			desc_stacksorted(struct node *head);
 
 #endif

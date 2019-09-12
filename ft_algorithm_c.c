@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 
 /* first be able to sort 1 stack with a bubble sort.
  * Then be able to find the median value
  * Then be able to sort in decending order
  *
- * */
-
+ * 
+*/
 
 int	main(int ac, char **av)
 {
@@ -32,20 +32,11 @@ int	main(int ac, char **av)
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
 
-		while (stacksorted(list) != 1)
-		{
-			if (list->data > list->next->data)
-			{
-				ft_shift_a(&list, 2);
-				//ft_putendl("sa");
-			}
-			else
-			{
-				ft_swap_a(&list, 2);
-				//ft_putendl("ra");
-			}
-		}
+		if (desc_stacksorted(list) == 1)
+			ft_putendl("It works!!");
+		
 	}
+	printf("\n");
 	ft_printlist(list);
 
 	return 0;

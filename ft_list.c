@@ -86,11 +86,11 @@ void		ft_remove_first(struct node **head)
 	return ;
 }
 
-void		ft_remove_last(struct node **head, int s)
+void		ft_remove_last(struct node **head)
 {
 	struct node *ptr;
 
-	s = 0;
+	//s = 0;
 	ptr = *head;
 	if (!(ptr->next))
 		return ; //if you want it to remove stuff length 1 put it here;

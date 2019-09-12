@@ -10,7 +10,7 @@ void		ft_reverse_a(stack_a **a, int s)
 		while (ptr->next)
 			ptr = ptr->next;
 		ft_add_first(a, ptr->data);
-		ft_remove_last(a, s);
+		ft_remove_last(a);
 		ptr->next = NULL;
 	}
 }
@@ -25,7 +25,7 @@ void		ft_reverse_b(stack_b **b, int s)//fix as above
 		while (s-- > 2)
 			ptr = ptr->next;
 		ft_add_first(b, ptr->next->data);
-		ft_remove_last(&ptr, s);
+		ft_remove_last(&ptr);
 		ptr->next = NULL;
 	}
 }
