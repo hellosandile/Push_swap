@@ -47,8 +47,8 @@ void		ft_push_b(stack_a **a, stack_b **b)
 		pb->data = (*pa)->data;
 		pb->next = *b;
 		*b = pb;
-		//ft_remove_first(&*a);
-		*a = (*a)->next; //need to delete the node being abandoned.
+		ft_remove_first(&*a);
+		//*a = (*a)->next; //need to delete the node being abandoned.
 		//stack_a_size(s, "minus");
 		//stack_b_size("add");
 	}

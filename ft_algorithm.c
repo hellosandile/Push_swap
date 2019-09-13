@@ -99,6 +99,80 @@ int		min(struct node **head)
 	return (min);
 }
 
+int		mid(int size)
+{
+	if ((size % 2) == 0)
+		return (size / 2);
+	else
+		return ((size / 2) + 1);
+}
+
+
+void		get_biggest(struct node *head)
+{
+	struct node *stack;
+	int	back = 0;
+	int	front = 0;
+	int	value;
+	stack_b *listb;
+
+	stack = head;
+
+
+	if (listsize(stack) < 2)
+		return ;
+
+	value = stack->data;
+
+	while (stack->next != NULL)
+	{
+		if (value < stack->next->data)
+			value = stack->next->data;
+		stack = stack->next;
+	}
+
+
+	stack = head;
+
+	while (stack->next && stack->data != value)
+	{
+		front++;
+		stack = stack->next;
+	}
+	stack = stack->next;
+
+	while(stack->next)
+	{
+		back++;
+		stack = stack->next;
+	}
+
+	if (front > back || back == 0)
+	{
+		while (back-- > -1)
+		{
+			if (!desc_stacksorted(listb))
+				return;
+			ft_reverse_b(&listb, 2);
+			ft_putendl("rrb");
+		}
+	}
+	else
+	{
+		while (front-- > 0)
+		{
+			if (!desc_stacksorted(listb))
+				return ;
+			ft_shift_b(&listb, 2);
+			ft_putendl("rb");
+		}
+	}
+
+
+
+}
+
+
 int		last(struct node **head)
 {
 	struct node *stack;
@@ -180,22 +254,125 @@ int		desc_stacksorted(struct node *head)
 	return 1;
 }
 
-int		*create_range(int min, int max)
+int		*create_range(int min, int max, int size)
 {
 	int 	i;
 	int 	r;
 	int	max_f;
 	int	*range = NULL;
 
-	if (listsize(list) >= 100)
+	if (size >= 100)
 	{
 		i = 0;
-		if (listsize)
+		if (size == 100)
+		{
+			range = (int *)malloc(sizeof(int) * 5);
+
+			r = (max - min) / 5;
+			r += (max - min % 5 == 0) ? 0 : 1;
+			max_f = r + (min - 1);
+
+			range[i] = max_f;
+
+			if (max_f < 0)
+				max_f = 19;
+
+			while (++i < 4)
+			{
+				range[i] = range[i - 1] + max_f;
+			}
+			range[i] = max;
+		}
+
+		else if (size > 100)
+		{
+			range = (int *)malloc(sizeof(int) * 11);
+			r = (max - min) / 11;
+			max_f = r + (min - 1);
+			range[i] = max_f;
+			if (max_f < 0)
+				max_f = 45;
+
+			while (++i < 10)
+				range[i] = range[i - 1] + max_f;
+			range[i] = max;
+		}
 	}
+	return (range);
 }
 
+void		sort100(stack_a **a, stack_b **b, int size)
+{
+	int	maxi;
+	int	mini;
+	int	*range;
+	int	i;
 
+	stack_a *list;
+	stack_b	*listb;
+
+	i = 0;
+
+	listb = *b;
+	list = *a;
+
+	mini = min(&list);
+	maxi = max(&list);
+
+	range = create_range(mini, maxi, size);
+
+	while (size > 1)
+	{
+		list = *a;
+		i = 0;
+
+		while (size)
+		{
+			i++;
+			if (list->data >= mini && list->data < *range)
+			{
+				if (mid(size) >= i)
+				{
+					while (i-- > 1)
+					{
+						ft_shift_a(&list, 2);
+						ft_putendl("ra");
+					}
+					i = 0;
+				}
+				else
+				{
+					while (i-- > 0)
+					{
+						ft_reverse_a(&list, 2);
+						ft_putendl("rra");
+					}
+					i = 0;
+				}
+				get_biggest(listb);
+				ft_push_b(&list, &listb);
+				ft_putendl("pb");
+				list = *a;
+				//size--;
+			}
+			else
+				list = list->next;
+		}
+		mini = *range;
+		range++;
+	}
+
+	while (listsize(listb) > 0)
+	{
+		get_biggest(listb);
+		ft_push_a(&list, &listb);
+		ft_putendl("pa");
+	}
+
+
+}
 /*
+
 int main (int ac, char **av)
 {
 	char **data;
@@ -210,7 +387,7 @@ int main (int ac, char **av)
 	{
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
-		while (stack_sorted(&list) != 1)
+		while (stacksorted(list) != 1)
 		{
 			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0
 					&& head_g_last(&list) == 1)
@@ -247,4 +424,5 @@ int main (int ac, char **av)
 	free(list);
 	return (0);
 }
+
 */

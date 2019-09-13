@@ -73,4 +73,10 @@ int			 listsize(struct node *head);
 int			stacksorted(struct node *head);
 int			desc_stacksorted(struct node *head);
 
+void			sort100(stack_a **a, stack_b **b, int size);
+int			*create_range(int min, int max, int size);
+int			mid(int size);
+void			get_biggest(stack_b *head);
+
+
 #endif

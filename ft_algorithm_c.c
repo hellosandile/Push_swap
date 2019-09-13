@@ -13,28 +13,25 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-/* first be able to sort 1 stack with a bubble sort.
- * Then be able to find the median value
- * Then be able to sort in decending order
- *
- * 
-*/
 
 int	main(int ac, char **av)
 {
 	char **data;
 	stack_a *list;
+	stack_b *listb;
+	//int *size;
 
 	list = (stack_a *)malloc(sizeof(stack_a));
+	listb = (stack_b *)malloc(sizeof(stack_b));
 
 	if (ac == 2)
 	{
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
 
-		if (desc_stacksorted(list) == 1)
-			ft_putendl("It works!!");
-		
+		if (stacksorted(list) == 0)
+			sort100(&list, &listb, listsize(list));
+
 	}
 	printf("\n");
 	ft_printlist(list);

@@ -22,10 +22,10 @@ void		ft_reverse_b(stack_b **b, int s)//fix as above
 	ptr = *b;
 	if (s > 1)
 	{
-		while (s-- > 2)
+		while (ptr->next)
 			ptr = ptr->next;
-		ft_add_first(b, ptr->next->data);
-		ft_remove_last(&ptr);
+		ft_add_first(b, ptr->data);
+		ft_remove_last(b);
 		ptr->next = NULL;
 	}
 }

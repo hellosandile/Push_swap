@@ -38,7 +38,7 @@ void		ft_shift_b(stack_b **b, int s)
 	ptr = *b;
 	if (s > 1)
 	{
-		while (s-- > 1)
+		while (ptr->next != NULL)
 		{
 			ft_swap_b(&ptr);
 			ptr = ptr->next;
