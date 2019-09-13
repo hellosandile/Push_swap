@@ -151,22 +151,6 @@ int		head_g_middle(struct node **head)
 	return 0;
 }
 
-int		stack_sorted(struct node **head)
-{
-	struct node *stack;
-	int		head_value;
-	int		middle_value;
-
-	stack = *head;
-	head_value = stack->data;
-	middle_value = stack->next->data;
-	while (stack->next != NULL)
-		stack = stack->next;
-	if (head_value < middle_value && head_value < stack->data &&
-			middle_value > head_value && middle_value < stack->data)
-		return 1;
-	return 0;
-}
 
 int		stacksorted(struct node *head)
 {
@@ -195,6 +179,22 @@ int		desc_stacksorted(struct node *head)
 	}
 	return 1;
 }
+
+int		*create_range(int min, int max)
+{
+	int 	i;
+	int 	r;
+	int	max_f;
+	int	*range = NULL;
+
+	if (listsize(list) >= 100)
+	{
+		i = 0;
+		if (listsize)
+	}
+}
+
+
 /*
 int main (int ac, char **av)
 {
