@@ -70,7 +70,7 @@ void		ft_add_first(struct node **head, int value)
 
 	item = malloc(sizeof(struct node));
 	item->data = value;
-	item->p = 0;
+	item->ptr = 0;
 	item->next = *head;
 	*head = item;
 	return ;
@@ -111,7 +111,7 @@ void		ft_populate(stack_a *head, char **stack, int *size)
 	if (ptr != NULL)
 	{
 		ptr->data = ft_atoi(stack[i]); //first value of the stack
-		ptr->p = i;
+		ptr->ptr = i;
 		ptr->next = NULL;
 		i++;
 	}
@@ -122,7 +122,7 @@ void		ft_populate(stack_a *head, char **stack, int *size)
 	while (stack[i])
 	{
 		ptr->next->data = ft_atoi(stack[i]);
-		ptr->next->p = i;
+		ptr->next->ptr = i;
 		ptr->next->next = malloc(sizeof(stack_a));
 		ptr = ptr->next;
 		i++;

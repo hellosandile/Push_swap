@@ -151,7 +151,7 @@ void		get_biggest(struct node *head)
 	{
 		while (back-- > -1)
 		{
-			if (!desc_stacksorted(listb))
+			if (!ft_sorted_desc(listb))
 				return;
 			ft_reverse_b(&listb, 2);
 			ft_putendl("rrb");
@@ -161,7 +161,7 @@ void		get_biggest(struct node *head)
 	{
 		while (front-- > 0)
 		{
-			if (!desc_stacksorted(listb))
+			if (!ft_sorted_desc(listb))
 				return ;
 			ft_shift_b(&listb, 2);
 			ft_putendl("rb");
@@ -239,7 +239,7 @@ int		stacksorted(struct node *head)
 	}
 	return 1;
 }
-
+/*
 int		desc_stacksorted(struct node *head)
 {
 	struct node *a, *b;
@@ -253,7 +253,7 @@ int		desc_stacksorted(struct node *head)
 	}
 	return 1;
 }
-
+*/
 int		*create_range(int min, int max, int size)
 {
 	int 	i;
@@ -261,44 +261,22 @@ int		*create_range(int min, int max, int size)
 	int	max_f;
 	int	*range = NULL;
 
-	if (size >= 100)
+	if (size >= 50 && size <= 100)
 	{
 		i = 0;
-		if (size == 100)
-		{
-			range = (int *)malloc(sizeof(int) * 5);
-
-			r = (max - min) / 5;
-			r += (max - min % 5 == 0) ? 0 : 1;
-			max_f = r + (min - 1);
-
-			range[i] = max_f;
-
-			if (max_f < 0)
-				max_f = 19;
-
-			while (++i < 4)
-			{
-				range[i] = range[i - 1] + max_f;
-			}
-			range[i] = max;
+		range = (int *)malloc(sizeof(int) * 5);
+		r = (max - min) / 5;
+		r += (max - min % 5 == 0) ? 0 : 1;
+		max_f = r + (min - 1);
+		range[i] = max_f;
+		if (max_f < 0)
+			max_f = 19;
+		while (++i < 4)
+			range[i] = range[i - 1] + max_f;
+		range[i] = max;
 		}
-
-		else if (size > 100)
-		{
-			range = (int *)malloc(sizeof(int) * 11);
-			r = (max - min) / 11;
-			max_f = r + (min - 1);
-			range[i] = max_f;
-			if (max_f < 0)
-				max_f = 45;
-
-			while (++i < 10)
-				range[i] = range[i - 1] + max_f;
-			range[i] = max;
-		}
-	}
 	return (range);
+	//free(range);
 }
 
 void		sort100(stack_a **a, stack_b **b, int size)

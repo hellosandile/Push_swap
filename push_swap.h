@@ -19,7 +19,7 @@
 typedef struct	node
 {
 	int			data;
-	int			p;
+	int			ptr;
 	struct node	*next;
 }				stack_a, stack_b;
 
