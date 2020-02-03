@@ -276,8 +276,10 @@ int		*create_range(int min, int max, int size)
 		range[i] = max;
 		}
 	return (range);
-	//free(range);
+	free(range);
 }
+
+
 
 void		sort100(stack_a **a, stack_b **b, int size)
 {

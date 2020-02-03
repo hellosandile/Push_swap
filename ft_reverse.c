@@ -18,11 +18,13 @@ void		ft_reverse_a(stack_a **a, int s)
 void		ft_reverse_b(stack_b **b, int s)
 {
 	stack_b *ptr;
-	
 	ptr = *b;
-	if (s > 1)
+	//ft_printlist(&ptr);
+	//sleep(10);
+	
+	if (s > 2)
 	{
-		while (ptr && ptr->next)
+		while (ptr->next)
 			ptr = ptr->next;
 		ft_add_first(b, ptr->data);
 		ft_remove_last(b);

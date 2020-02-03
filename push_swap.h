@@ -26,7 +26,7 @@ typedef struct	node
 void		ft_print(struct node **head, int size);
 int			ft_list_size(struct node *head);
 void		ft_swap_a(stack_a **a, int s);
-void		ft_swap_b(stack_b **b);
+void		ft_swap_b(stack_b **b, int s);
 void		ft_push_a(stack_a **a, stack_b **b);
 void		ft_push_b(stack_a **a, stack_b **b);
 void		ft_shift_a(stack_a **a, int s);
@@ -77,6 +77,7 @@ void			sort100(stack_a **a, stack_b **b, int size);
 int			*create_range(int min, int max, int size);
 int			mid(int size);
 void			get_biggest(stack_b *head);
+void	sortThree(struct node *head);
 
 
 #endif

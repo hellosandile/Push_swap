@@ -31,6 +31,8 @@ void		ft_shift_a(stack_a **a, int s)
 	}
 }
 
+
+
 void		ft_shift_b(stack_b **b, int s)
 {
 	stack_b *ptr;
@@ -40,7 +42,7 @@ void		ft_shift_b(stack_b **b, int s)
 	{
 		while (ptr->next != NULL)
 		{
-			ft_swap_b(&ptr);
+			ft_swap_b(&ptr, s);
 			ptr = ptr->next;
 		}
 	}

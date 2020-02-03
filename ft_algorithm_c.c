@@ -23,17 +23,31 @@ int	main(int ac, char **av)
 
 	list = (stack_a *)malloc(sizeof(stack_a));
 	listb = (stack_b *)malloc(sizeof(stack_b));
+	listb = NULL;
 
 	if (ac == 2)
 	{
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
+		//listb->next = NULL;
+		//ft_push_b(&list, &listb);
+		//ft_push_b(&list, &listb);
+		
+
+		//WHY IS IT PUSHING A ZERO TO THE NEXT STACK
 		if (stacksorted(list) == 0)
+		{
+			// ft_push_b(&list, &listb);
+			// ft_push_b(&list, &listb);
+			ft_printlist(listb);
 			sort100(&list, &listb, listsize(list));
+		}
 
 	}
-	//printf("\n");
-	//ft_printlist(list);
+	printf("\n");
+	// ft_printlist(list);
+	printf("\n----------------\n");
+	ft_printlist(listb);
 	free(list);
 	free(listb);
 

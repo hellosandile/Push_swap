@@ -29,12 +29,12 @@ void		ft_swap_a(stack_a **a, int s)
 	}
 }
 
-void		ft_swap_b(stack_b **b)
+void		ft_swap_b(stack_b **b, int s)
 {
 	stack_b **ptr;
 	int		temp;
 
-	if (stack_b_size("") > 1)
+	if (s > 1)
 	{
 		ptr = b;
 		temp = (*ptr)->data;
@@ -46,5 +46,5 @@ void		ft_swap_b(stack_b **b)
 void		ft_swap_both(stack_a *a, stack_b *b)
 {
 	ft_swap_a(&a, 2);
-	ft_swap_b(&b);
+	ft_swap_b(&b, 2);
 }

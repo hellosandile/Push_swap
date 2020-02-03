@@ -18,7 +18,7 @@ void		ft_follow(stack_a **a, stack_b **b, char *instr, int *s)
 	if (ft_strequ(instr, "sa"))
 		ft_swap_a(&*a, *s);
 	else if (ft_strequ(instr, "sb"))
-		ft_swap_b(&*b);
+		ft_swap_b(&*b, *s);
 	else if (ft_strequ(instr, "ss"))
 		ft_swap_both(*a, *b);
 	else if (ft_strequ(instr, "pa"))
