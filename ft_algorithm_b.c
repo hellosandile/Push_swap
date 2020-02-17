@@ -14,7 +14,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-/*
+
 int	main(int ac , char **av)
 {
 	char **data;
@@ -56,6 +56,7 @@ int	main(int ac , char **av)
 			{
 				ft_reverse_a(&list, 3);
 				ft_putendl("rra");
+				
 			}
 			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 1)
 			{
@@ -91,4 +92,3 @@ int	main(int ac , char **av)
 	return 0;
 }
 
-*/

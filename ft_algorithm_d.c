@@ -1,18 +1,38 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void	sortThree(struct node *head)
+void	sortThree()
 {
-	stack_a *list;
-	list = head;
+	struct node *list;
+	list = NULL;
+	struct node *listb;
+	listb = NULL;
 
-	while (stacksorted(list) != 1)
-	{
-			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0
-					&& head_g_last(&list) == 1)
+	while (listsize(list) > 3 && stacksorted(list) == 0)
+		{
+			if (last(&list) == min(&list))
+			{
+				ft_reverse_a(&list, listsize(list));
+				ft_putendl("rra");
+			}
+			 if (list->data != min(&list))
+			{
+				ft_shift_a(&list, 2);
+				ft_putendl("ra");
+			}
+			if (list->data == min(&list))
+			{
+				ft_push_b(&list, &listb);
+				ft_putendl("pb");
+			}
+		}
+		while (stacksorted(list) != 1)
+		{
+			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0 && head_g_last(&list) == 1)
 			{
 				ft_reverse_a(&list, 3);
 				ft_putendl("rra");
+				
 			}
 			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 1)
 			{
@@ -35,7 +55,14 @@ void	sortThree(struct node *head)
 				ft_putendl("sa");
 			}
 		}
+		while (listsize(listb) > 0)
+		{
+			ft_push_a(&list, &listb);
+			ft_putendl("pa");
+		}
 }
+
+/*
 
 int	main(int ac , char **av)
 {
@@ -53,11 +80,13 @@ int	main(int ac , char **av)
     {
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
-        if (listsize(list) == 3 && stacksorted(list) == 0)
-			sortThree(list);	
+        if (listsize(list) == 5  && stacksorted(list) == 0)
+			sortThree();	
     }
 ft_printlist(list);
 ft_printlist(listb);
 return 0;
 }
 
+
+*/
