@@ -7,7 +7,7 @@ void		ft_reverse_a(stack_a **a, int s)
 	ptr = *a;
 	if (s > 1)
 	{
-		while (ptr->next)
+		while (ptr->next != NULL)
 			ptr = ptr->next;
 		ft_add_first(a, ptr->data);
 		ft_remove_last(a);

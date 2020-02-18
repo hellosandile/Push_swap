@@ -1,11 +1,12 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void	sortThree()
+
+void	sortFive(struct node **head)
 {
-	struct node *list;
-	list = NULL;
-	struct node *listb;
+	stack_a *list;
+	stack_b *listb;
+	list = *head;
 	listb = NULL;
 
 	while (listsize(list) > 3 && stacksorted(list) == 0)
@@ -13,6 +14,9 @@ void	sortThree()
 			if (last(&list) == min(&list))
 			{
 				ft_reverse_a(&list, listsize(list));
+				//ft_printlist(list);
+				//printf("%s", "-");
+				//sleep(5);
 				ft_putendl("rra");
 			}
 			 if (list->data != min(&list))
@@ -59,18 +63,17 @@ void	sortThree()
 		{
 			ft_push_a(&list, &listb);
 			ft_putendl("pa");
+			printf("%p\n", (void *) list->next);
 		}
 }
 
-/*
+
 
 int	main(int ac , char **av)
 {
 	char **data;
 	stack_a *list;
 	stack_b *listb;
-	//int size;
-	//stack_a *stack;
 
 	list = (stack_a *)malloc(sizeof(stack_a));
 	listb = (stack_b *)malloc(sizeof(stack_b));
@@ -81,12 +84,9 @@ int	main(int ac , char **av)
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
         if (listsize(list) == 5  && stacksorted(list) == 0)
-			sortThree();	
+			sortFive(&list);	
     }
 ft_printlist(list);
-ft_printlist(listb);
+//ft_printlist(listb);
 return 0;
 }
-
-
-*/

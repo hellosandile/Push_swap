@@ -77,7 +77,7 @@ void			sort100(stack_a **a, stack_b **b, int size);
 int			*create_range(int min, int max, int size);
 int			mid(int size);
 void			get_biggest(stack_b *head);
-void	sortThree();
+void	sortFive(struct node **head);
 
 
 #endif
