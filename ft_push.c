@@ -28,8 +28,8 @@ void		ft_push_a(stack_a **a, stack_b **b)
 		pa->data = (*pb)->data;
 		//pa->data = (*pb)->data;
 		pa->next = *a;
-		printf("%p\n", (void *) &pb);
-		printf("%p\n", (void *) &a);
+		//printf("%p\n", (void *) &pb);
+		//printf("%p\n", (void *) &a);
 
 		*a = pa;
 		ft_remove_first(&*b); // It removes the first value that is being moved

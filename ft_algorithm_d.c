@@ -2,12 +2,12 @@
 #include <stdio.h>
 
 
-void	sortFive(struct node **head)
+void	sortFive(stack_a **a, stack_b **b)
 {
 	stack_a *list;
 	stack_b *listb;
-	list = *head;
-	listb = NULL;
+	list = *a;
+	listb = *b;
 
 	while (listsize(list) > 3 && stacksorted(list) == 0)
 		{
@@ -63,8 +63,17 @@ void	sortFive(struct node **head)
 		{
 			ft_push_a(&list, &listb);
 			ft_putendl("pa");
-			printf("%p\n", (void *) list->next);
+			//printf("%p\n", (void *) list->next);
 		}
+		if (listsize(listb) == 0)
+			listb = NULL;
+		printf("List size for list in function = %i\n", listsize(list));
+		printf("Current list contents in functin: "),
+		ft_printlist(list);
+		printf("\n");
+		printf("List size for listb in function = %i\n", listsize(listb));
+		printf("------\n");
+		return ;
 }
 
 
@@ -84,9 +93,12 @@ int	main(int ac , char **av)
 		data = ft_strsplit(av[1], ' ');
 		initialize(&list, data);
         if (listsize(list) == 5  && stacksorted(list) == 0)
-			sortFive(&list);	
+			sortFive(&list, &listb);	
     }
+printf("Final list contents of stack_a: ");
 ft_printlist(list);
+printf("\nCurrent list size of stack_a: ");
+printf("%i\n", listsize(list));
 //ft_printlist(listb);
 return 0;
 }
