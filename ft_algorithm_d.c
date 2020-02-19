@@ -67,13 +67,7 @@ void	sortFive(stack_a **a, stack_b **b)
 		}
 		if (listsize(listb) == 0)
 			listb = NULL;
-		printf("List size for list in function = %i\n", listsize(list));
-		printf("Current list contents in functin: "),
-		ft_printlist(list);
-		printf("\n");
-		printf("List size for listb in function = %i\n", listsize(listb));
-		printf("------\n");
-		return ;
+		*a = list;
 }
 
 
@@ -99,6 +93,5 @@ printf("Final list contents of stack_a: ");
 ft_printlist(list);
 printf("\nCurrent list size of stack_a: ");
 printf("%i\n", listsize(list));
-//ft_printlist(listb);
 return 0;
 }
