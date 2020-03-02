@@ -14,11 +14,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Here I am initialising the stack
 void	initialize(struct node  **head, char **data)
 {
 	struct node *stack;
-	//stack_b *stack2;
 
 	int i = 0;
 	stack = *head;
@@ -32,13 +30,12 @@ void	initialize(struct node  **head, char **data)
 	{
 		stack->next->data =  ft_atoi(data[i]);
 		stack->next->next = (struct node *)malloc(sizeof(struct node));
-	stack = stack->next;
+		stack = stack->next;
 		i++;
 	}
 	stack->next = NULL;
 }
 
-//using this to print what is in my current stack_a
 void	ft_printlist(struct node *head)
 {
 	struct node *stack;
@@ -115,38 +112,29 @@ void		get_biggest(struct node *head)
 	int	front = 0;
 	int	value;
 	stack_b *listb;
-
 	stack = head;
-
 
 	if (listsize(stack) < 2)
 		return ;
-
 	value = stack->data;
-
 	while (stack->next != NULL)
 	{
 		if (value < stack->next->data)
 			value = stack->next->data;
 		stack = stack->next;
 	}
-
-
 	stack = head;
-
 	while (stack->next && stack->data != value)
 	{
 		front++;
 		stack = stack->next;
 	}
 	stack = stack->next;
-
 	while(stack->next)
 	{
 		back++;
 		stack = stack->next;
 	}
-
 	if (front > back || back == 0)
 	{
 		while (back-- > -1)
@@ -167,9 +155,6 @@ void		get_biggest(struct node *head)
 			ft_putendl("rb");
 		}
 	}
-
-
-
 }
 
 
@@ -281,7 +266,7 @@ int		*create_range(int min, int max, int size)
 
 
 
-void		sort100(stack_a **a, stack_b **b, int size)
+void		sort100(stack_a **a, stack_b **b)
 {
 	int	maxi;
 	int	mini;
@@ -299,19 +284,19 @@ void		sort100(stack_a **a, stack_b **b, int size)
 	mini = min(&list);
 	maxi = max(&list);
 
-	range = create_range(mini, maxi, size);
+	range = create_range(mini, maxi, listsize(list));
 
-	while (size > 1)
+	while (listsize(list) > 1)
 	{
 		list = *a;
 		i = 0;
 
-		while (size)
+		while (listsize(list))
 		{
 			i++;
 			if (list->data >= mini && list->data < *range)
 			{
-				if (mid(size) >= i)
+				if (mid(listsize(list)) >= i)
 				{
 					while (i-- > 1)
 					{

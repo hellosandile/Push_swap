@@ -11,39 +11,91 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-int		main(int c, char **argv)
+void	ft_printlist(struct node *head)
+{
+	struct node *stack;
+
+	stack = head;
+	while (stack != NULL)
+	{
+		printf("%d", stack->data);
+		stack = stack->next;
+	}
+}
+
+int		stacksorted(struct node *head)
+{
+	struct node *a, *b;
+	a = head;
+	while (a->next != NULL)
+	{
+		b = a->next;
+		if (b->data < a->data)
+			return 0;
+		a = a->next;
+	}
+	return 1;
+}
+
+/*
+IMPORTANT, CHECK ERROR FOR MAX INT!!!!!!!
+*/
+
+int		main(int argc, char **argv)
 {
 	static stack_a	*stack;
 	static stack_b	*temp;
 	char			**res;
+	char 			*str;
 	static char		*instr;
 	static int		i;
 	int				size;
-//Creating memory for the 2 stacks
-	if ((stack = malloc(sizeof(stack_a))) == NULL)
-		return (0);
-	if ((temp = malloc(sizeof(stack_b))) == NULL)
-		return (0);
-	//Checking that there is an argument
-	if (c > 1 && ft_strequ(argv[1], "") == 0)
+	int j;
+	char			*avConcatStr;
+	if (argc < 2)
+		return(0);
+	if (argc >= 1 && ft_strequ(argv[1], "") == 0)
 	{
+		if ((stack = malloc(sizeof(stack_a))) == NULL)
+			return (0);
+		if ((temp = malloc(sizeof(stack_b))) == NULL)
+			return (0);
 		i = 1;
 		if (stack != NULL)
 		{
-			res = ft_strsplit(argv[1], ' ');
+			if (argc == 2)
+				str = argv[1];
+			else if (argc > 2)
+			{
+				str = argv[1];
+				j = 2;
+				while (j < argc)
+				{
+					str = ft_strjoin(str, " ");
+					avConcatStr = ft_strjoin(str, argv[j]);
+					str	= avConcatStr;
+					j++;
+				}
+			}
+			res = ft_strsplit(str, ' ');
 			if (ft_handle(stack, res, &size))
 			{
 				free(stack);
 				free(temp);
 				return (0);
 			}
-			// Here we are reading instructions from the stdin using fd 0
+			if (stacksorted(stack))
+				{
+					ft_putendl("OK");
+					return 0;
+				}
 			while (get_next_line(0, &instr) == 1)
 			{
-				if (i == 1 && ft_strlen(instr) > 2) // must be 2 bcuz 
-					//instrunctions from PDF has a min of 2 in the instruction
+				if (i == 1 && ft_strlen(instr) > 2)
 				{
+					
 					if (ft_handle_instr(ft_instr(instr)))
 					{
 						ft_putendl_fd("Error", 2);
@@ -52,23 +104,25 @@ int		main(int c, char **argv)
 				}
 				else
 				{
+					if (ft_strequ(instr, "done"))
+						break;
 					if (ft_handle_instr(instr))
 					{
 						ft_putendl_fd("Error", 2);
 						return (0);
 					}
 				}
-				ft_putendl(instr); // not neccessary since this only shows 
-				//					the instrunctions
 				ft_follow(&stack, &temp, instr, &size);
 				i++;
 			}
-			if (ft_sorted(stack))
+			if (stacksorted(stack) == 1)
 				ft_putendl("OK");
 			else
 				ft_putendl("KO");
 		}
 	}
+	ft_printlist(stack);
+	printf("\n");
 	free(stack);
 	free(temp);
 	return (0);
