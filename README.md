@@ -70,4 +70,4 @@ ARG=`ruby -e "puts (1..50).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checke
 * **Sandile MKhize** -  [@hellosandile](https://twitter.com/hellosandile)
 
 ## Acknowledgments
-* Hive five to everyone at @WeThinkCode_ who helped with this project
+* Hive five to everyone at [@WeThinkCode_](https://www.wethinkcode.co.za/)
