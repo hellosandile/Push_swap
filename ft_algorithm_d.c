@@ -1,6 +1,30 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+void	sortNumbers(stack_a **a, stack_b **b)
+{
+	stack_a *list;
+	stack_b *listb;
+	list = *a;
+	listb = NULL;
+	int m;
+	m  = medianValue(list);
+
+	while(1)
+	{
+		if (list->data > m)
+		{
+		ft_reverse_a(&list, listsize(list));
+		}
+		if (list->data < m)
+			ft_push_b(&list, &listb);
+		if (list->data == m)
+			break;
+	}
+	*a = list;
+	*b = listb;
+}
+
 void	sortFive(stack_a **a, stack_b **b)
 {
 	stack_a *list;
@@ -36,6 +60,7 @@ void	sortFive(stack_a **a, stack_b **b)
 		if (listsize(listb) == 0)
 			listb = NULL;
 		*a = list;
+		return; 
 }
 
 void	sortThree(stack_a **a)
@@ -73,13 +98,14 @@ void	TestEndDisplay(stack_a ** a)
 {
 	stack_a *list;
 	list = *a;
-	//printf("Final list contents of stack_a: ");
+	printf("Final list contents of stack_a: ");
 	ft_printlist(list);
-	//printf("\nCurrent list size of stack_a: ");
+	printf("Final list contents of stack_b: ");
+	printf("\nCurrent list size of stack_a: ");
 	printf("%i\n", listsize(list));
 }
 
-int mediamValue(struct node *head) 
+int medianValue(struct node *head) 
 { 
 	int i = 0; 
     stack_a *mid = head;
@@ -133,23 +159,26 @@ int	main(int ac , char **av)
 			data = ft_strsplit(str, ' ');
 		}
 		initialize(&list, data);
-		int m = mediamValue(list);
-		printf("%d\n", m);
-		/*
 		if (ft_dup(list))
 		{
 			ft_putendl("Error");
 			return 0;
 		}
+		sortNumbers(&list, &listb);
+		/*
 		if (listsize(list) < 4 && stacksorted(list) == 0)
 			sortThree(&list);
         if (listsize(list) < 50  && listsize(list) > 3 && stacksorted(list) == 0)
 			sortFive(&list, &listb);
 		if (listsize(list) > 5 && stacksorted(list) == 0)
 			sort100(&list, &listb);
+			*/
     }
-TestEndDisplay(&list);
-*/
-	}
-return 0;
+	//TestEndDisplay(&list);
+	printf("Final list contents of stack_a: ");
+	ft_printlist(list);
+	printf("\n");
+	printf("Final list contents of stack_b: ");
+	ft_printlist(listb);
+	return 0;
 }
