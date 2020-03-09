@@ -73,12 +73,35 @@ void	TestEndDisplay(stack_a ** a)
 {
 	stack_a *list;
 	list = *a;
-	printf("Final list contents of stack_a: ");
+	//printf("Final list contents of stack_a: ");
 	ft_printlist(list);
-	printf("\nCurrent list size of stack_a: ");
+	//printf("\nCurrent list size of stack_a: ");
 	printf("%i\n", listsize(list));
 }
 
+int mediamValue(struct node *head) 
+{ 
+	int i = 0; 
+    stack_a *mid = head;
+	stack_b *listb = NULL;
+	if (listsize(mid) % 2 == 0)
+	{
+		ft_remove_last(&mid);
+		sortFive(&mid, &listb);
+	}
+	else
+		sortFive(&mid, &listb);
+    while (head != NULL) 
+    { 
+        if (i & 1) 
+            mid = mid->next; 
+        i++; 
+        head = head->next; 
+    } 
+    if (mid != NULL) 
+    	return (mid->data);
+	return (mid->data);
+} 
 
 int	main(int ac , char **av)
 {
@@ -110,6 +133,9 @@ int	main(int ac , char **av)
 			data = ft_strsplit(str, ' ');
 		}
 		initialize(&list, data);
+		int m = mediamValue(list);
+		printf("%d\n", m);
+		/*
 		if (ft_dup(list))
 		{
 			ft_putendl("Error");
@@ -123,5 +149,7 @@ int	main(int ac , char **av)
 			sort100(&list, &listb);
     }
 TestEndDisplay(&list);
+*/
+	}
 return 0;
 }
