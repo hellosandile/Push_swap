@@ -6,11 +6,12 @@ void	sortNumbers(stack_a **a, stack_b **b)
 	stack_a *list;
 	stack_b *listb;
 	list = *a;
-	listb = NULL;
+	listb = *b;
+	int len = listsize(list) / 2;
 	int m;
 	m  = medianValue(list);
 
-	while(1)
+	while(listsize(list) > len)
 	{
 		if (list->data > m)
 		{
@@ -182,3 +183,7 @@ int	main(int ac , char **av)
 	ft_printlist(listb);
 	return 0;
 }
+
+
+//About to work with a sorted list of 1 2 3 4 5 but not when things are mixed up
+// get some help and sort this out asap
