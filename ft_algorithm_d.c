@@ -10,6 +10,7 @@ void	sortNumbers(stack_a **a, stack_b **b)
 	int len = listsize(list) / 2;
 	int m;
 	m  = medianValue(list);
+	printf("%d\n", m);
 
 	while(listsize(list) > len)
 	{

@@ -1,7 +1,9 @@
 34 64 15 13 16 51 48 13 28 45 84 62 54 55 44 83 15 63 10 82 70 60 3 86 57 92 37 27 13 51 64 93 24 95 8 37 98 51 77 41 0 50 14 93 80 6 69 79 25 85 48 8 12 66 58 24 50 33 78 3 85 89 2 22 49 43 17 99 60 78 1 69 28 98 46 25 45 46 20 74 63 64 2 99 89
 
 
-For 100 < numbers, I find the median and push everything below the median into stack b.
+For 100 < numbers, I find the median and push everything below the median into stack b. - Median does not work with unsorted list!!!
 Then I identify each the largest and smallest integer in stack b, 
 and determine which is most efficient to rotate up/down and push 
 back to stack a (along with the specific moves to make that happen). Then I execute those moves. 
+
+You can find the main in ft_algorithm_d.c 
