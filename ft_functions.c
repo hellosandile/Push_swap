@@ -259,7 +259,7 @@ int		*create_range(int min, int max, int size)
 		range[i] = max;
 		}
 	return(range);
-	free(range);
+//	free(range);
 }
 
 
@@ -270,6 +270,7 @@ void		sort100(stack_a **a, stack_b **b)
 	int	mini;
 	int	*range;
 	int	i;
+	int	size;
 
 	stack_a *list;
 	stack_b	*listb;
@@ -283,22 +284,21 @@ void		sort100(stack_a **a, stack_b **b)
 	maxi = max(&list);
 
 	range = create_range(mini, maxi, listsize(list));
-
-	while (listsize(list) > 1)
+	size = listsize(list);
+	while ( size > 1)
 	{
 		list = *a;
 		i = 0;
 
-		while (listsize(list))
+		while (list && ++i)
 		{
-			i++;
 			if (list->data >= mini && list->data < *range)
 			{
-				if (mid(listsize(list)) >= i)
+				if (mid(size) >= i)
 				{
 					while (i-- > 1)
 					{
-						ft_shift_a(&list, 2);
+						ft_shift_a(a, 2);
 						ft_putendl("ra");
 					}
 					i = 0;
@@ -307,16 +307,16 @@ void		sort100(stack_a **a, stack_b **b)
 				{
 					while (i-- > 0)
 					{
-						ft_reverse_a(&list, 2);
+						ft_reverse_a(a, 2);
 						ft_putendl("rra");
 					}
 					i = 0;
 				}
 				get_biggest(listb);
-				ft_push_b(&list, &listb);
+				ft_push_b(a, b);
 				ft_putendl("pb");
 				list = *a;
-				//size--;
+				size--;
 			}
 			else
 				list = list->next;
@@ -324,11 +324,10 @@ void		sort100(stack_a **a, stack_b **b)
 		mini = *range;
 		range++;
 	}
-
-	while (listsize(listb) > 0)
+	while (listsize(*b) > 0)
 	{
 		get_biggest(listb);
-		ft_push_a(&list, &listb);
+		ft_push_a(a, b);
 		ft_putendl("pa");
 	}
 }
@@ -339,34 +338,34 @@ void	sortThree(stack_a **a)
 	list = *a;
 
 	while (stacksorted(list) != 1)
+	{
+		if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0 && head_g_last(&list) == 1)
 		{
-			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0 && head_g_last(&list) == 1)
-			{
-				ft_reverse_a(&list, 3);
-				ft_putendl("rra");
-			}
-			if (last_g_middle(&list) == 0 && head_g_middle(&list) == 1)
-			{
-				ft_shift_a(&list, 2);
-				ft_putendl("ra");
-			}
-			if (last_g_middle(&list) == 1 && head_g_last(&list) == 1)
-			{
-				ft_shift_a(&list, 2);
-				ft_putendl("ra");
-			}
-			if (head_g_middle(&list) == 1)
-			{
-				ft_swap_a(&list, 2);
-				ft_putendl("sa");	
-			}
-			if (head_g_middle(&list) == 0 && last_g_middle(&list) == 0)
-			{
-				ft_swap_a(&list, 2);
-				ft_putendl("sa");
-			}
+			ft_reverse_a(&list, 3);
+			ft_putendl("rra");
 		}
-		*a = list;
+		if (last_g_middle(&list) == 0 && head_g_middle(&list) == 1)
+		{
+			ft_shift_a(&list, 2);
+			ft_putendl("ra");
+		}
+		if (last_g_middle(&list) == 1 && head_g_last(&list) == 1)
+		{
+			ft_shift_a(&list, 2);
+			ft_putendl("ra");
+		}
+		if (head_g_middle(&list) == 1)
+		{
+			ft_swap_a(&list, 2);
+			ft_putendl("sa");	
+		}
+		if (head_g_middle(&list) == 0 && last_g_middle(&list) == 0)
+		{
+			ft_swap_a(&list, 2);
+			ft_putendl("sa");
+		}
+	}
+	*a = list;
 }
 
 void	sortFive(stack_a **a, stack_b **b)
