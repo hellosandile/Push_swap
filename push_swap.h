@@ -79,8 +79,12 @@ int			mid(int size);
 void			get_biggest(stack_b *head);
 void	sortThree(stack_a **a);
 void	sortFive(stack_a **a, stack_b **b);
-int 	medianValue(struct node *head);
+int 	medianValue(stack_a **head);
 void	sortNumbers(stack_a **a, stack_b **b);
+int		getMiddle(struct node *head);
+void	testMedian(struct node *a);
+
+
 
 
 
