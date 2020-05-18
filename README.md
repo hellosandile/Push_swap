@@ -53,7 +53,7 @@ Code	| Instruction			| Action
 run make
 
 ```
-To recomile
+## Recompile
 
 ```
 run make re
