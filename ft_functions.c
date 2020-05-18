@@ -19,9 +19,9 @@ void	ft_initialize(struct node  **head, char **data)
 	int i = 0;
 	stack = *head;
 	stack->data = ft_atoi(data[i]);
-	stack->next = NULL; //creating the first node in the stack
+	stack->next = NULL;
 	while (stack->next != NULL)
-		stack = stack->next; // looping through the stack
+		stack = stack->next;
 	stack->next =  malloc(sizeof(struct node));
 	i = 1;
 	while (data[i] != NULL)
@@ -45,7 +45,7 @@ int		ft_head_g_last(struct node **head)
 	{
 		stack = stack->next;
 	}
-	if (head_value > stack->data) //head > tail
+	if (head_value > stack->data)
 		return (1);
 	return (0);
 }
@@ -138,7 +138,6 @@ void		ft_get_biggest(struct node **head)
 		}
 	}
 }
-
 
 int		ft_last(struct node **head)
 {
