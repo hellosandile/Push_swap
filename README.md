@@ -55,7 +55,7 @@ run make
 ```
 
 ### Usage
-Change the puts range for desired number range
+Change "puts (1..100)...." range for desired number range
 ```
 ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | wc -l
 ```
