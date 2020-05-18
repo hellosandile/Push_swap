@@ -73,19 +73,18 @@ int			 listsize(struct node *head);
 int			stacksorted(struct node *head);
 int			desc_stacksorted(struct node *head);
 
-void			sort100(stack_a **a, stack_b **b);
+void		sort100(stack_a **a, stack_b **b);
+void		sort_more_than_100(stack_a **a, stack_b **b);
 int			*create_range(int min, int max, int size);
 int			mid(int size);
-void			get_biggest(struct node *head);
+void			get_biggest(struct node **head);
 void	sortThree(stack_a **a);
 void	sortFive(stack_a **a, stack_b **b);
 int 	medianValue(stack_a **head);
 void	sortNumbers(stack_a **a, stack_b **b);
 int		getMiddle(struct node *head);
 void	testMedian(struct node *a);
-
-
-
-
-
+int			ft_big_value(stack_a *head);
+int			ft_first_sec_value(stack_a *head, int size);
+int			ft_less_value(stack_a *head, int size);
 #endif

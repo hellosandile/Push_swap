@@ -113,15 +113,14 @@ int	main(int ac , char **av)
 		}
 
 		testMedian(list);
-		
-		sort100(&list, &listb);
-		
 		if (listsize(list) < 4 && stacksorted(list) == 0)
 			sortThree(&list);
         if (listsize(list) <= 50  && listsize(list) > 3 && stacksorted(list) == 0)
 			sortFive(&list, &listb);
-		if (listsize(list) >50 && stacksorted(list) == 0)
+		if (listsize(list) > 50 && listsize(list) <= 100 && stacksorted(list) == 0)
 			sort100(&list, &listb);
+		if (listsize(list) > 100 && stacksorted(list) == 0)
+			sort_more_than_100(&list, &listb);
     }
 	//TestEndDisplay(&list);
 	printf("Final list contents of stack_a: ");

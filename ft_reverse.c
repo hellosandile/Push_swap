@@ -19,8 +19,6 @@ void		ft_reverse_b(stack_b **b, int s)
 {
 	stack_b *ptr;
 	ptr = *b;
-	//ft_printlist(&ptr);
-	//sleep(10);
 	
 	if (s > 2)
 	{
