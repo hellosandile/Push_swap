@@ -53,6 +53,12 @@ Code	| Instruction			| Action
 run make
 
 ```
+To recomile
+
+```
+run make re
+
+```
 
 ### Usage
 Change "puts (1..100)...." range for desired number range
