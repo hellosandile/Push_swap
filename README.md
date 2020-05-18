@@ -55,9 +55,9 @@ run make
 ```
 
 ### Usage
-
+Change the puts range for desired number range
 ```
-ARG=`ruby -e "puts (1..50).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker -vcat $ARG
+ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | wc -l
 ```
 
 ## Built With
@@ -70,4 +70,4 @@ ARG=`ruby -e "puts (1..50).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checke
 * **Sandile Mkhize** -  [@hellosandile](https://twitter.com/hellosandile)
 
 ## Acknowledgments
-* Hive five to everyone at [@WeThinkCode_](https://www.wethinkcode.co.za/)
+* Hive five to everyone at [@WeThinkCode_](https://www.wethinkcode.co.za/) who helped me where I got stuck.

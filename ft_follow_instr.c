@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-// Here we are simply executing instrunctions if they are passed from the stdin
 void		ft_follow(stack_a **a, stack_b **b, char *instr, int *s)
 {
 	if (ft_strequ(instr, "sa"))

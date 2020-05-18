@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-// Go throught the PDF to see how these instructions are described and coded below
 void		ft_swap_a(stack_a **a, int s)
 {
 	stack_a **ptr;

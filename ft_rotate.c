@@ -15,12 +15,9 @@
 void		ft_shift_a(stack_a **a, int s)
 {
 	stack_a *ptr;
-	//stack_a	*c;
-	//int		size;
-
+	
 	ptr = *a;
-	//c = *a;
-	//size = s;
+
 	if (s > 1)
 	{
 		while (ptr->next != NULL)

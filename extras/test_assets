@@ -1,0 +1,79 @@
+void	ft_printlist(struct node *head)
+{
+	struct node *stack;
+
+	stack = head;
+	while (stack != NULL)
+	{
+		printf("%d", stack->data);
+		printf(" ");
+		stack = stack->next;
+	}
+}
+
+
+	TestEndDisplay(&list);
+	printf("Final list contents of stack_a: ");
+	ft_printlist(list);
+	printf("\n");
+	printf("Final list contents of stack_b: ");
+	ft_printlist(listb);
+	printf("\n");
+	printf("The median value is: ");
+	
+	printf("%d", m);
+	printf("\n");
+
+	int ft_getMiddle(struct node *head) 
+{ 
+    int count = 0; 
+    struct node *mid = head; 
+  
+    while (head != NULL) 
+    { 
+        if (count & 1) 
+            mid = mid->next; 
+  
+        ++count; 
+        head = head->next; 
+    } 
+    if (mid != NULL) 
+	{
+        return(mid->data);
+	}
+	return(mid->data); 
+} 
+
+int medianValue(stack_a **head) 
+{ 
+    stack_a *slow_ptr = *head;  
+    stack_a *fast_ptr = *head;  
+  
+    if (head!=NULL)  
+    {  
+        while (fast_ptr != NULL && fast_ptr->next != NULL)  
+        {  
+            fast_ptr = fast_ptr->next->next;  
+            slow_ptr = slow_ptr->next;  
+        }    
+    }
+	return(slow_ptr->data);
+}
+
+int			ft_list_size(struct node *head)
+{
+	struct node	*ptr;
+	int			len;
+
+	len = 0;
+	ptr = head;
+	if (ptr != NULL)
+	{
+		while (ptr->next != NULL)
+		{
+			len++;
+			ptr = ptr->next;
+		}
+	}
+	return (len);
+}

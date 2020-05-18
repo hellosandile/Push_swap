@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-//Checking if it is a number and is in the integer range
-
 int			ft_check(char **stack)
 {
 	int		i;
@@ -28,9 +26,6 @@ int			ft_check(char **stack)
 	return (0);
 }
 
-//Checking if it is a number and it is called in the above function
-//If the return value is 0 then the function is true which means there is an error.
-
 int			ft_parse_int(char *value)
 {
 	if (ft_atoi(value) || ft_atoi(value) == 0)
@@ -38,9 +33,6 @@ int			ft_parse_int(char *value)
 	return (0);
 }
 
-//Checking the integer range and is called on the top function
-// Just refresh my atoi to see how it checks for max & min int values
-// Check ft_strequ 
 int			ft_range(char *value)
 {
 	int		num;
@@ -51,10 +43,9 @@ int			ft_range(char *value)
 	return (0);
 }
 
-//Checks for duplicates
 int			ft_dup(stack_a *head)
 {
-	stack_a *c; // means current 
+	stack_a *c; 
 	stack_a	*ptr;
 	int		val;
 
@@ -69,7 +60,7 @@ int			ft_dup(stack_a *head)
 				return (1);
 			c = c->next;
 		}
-		ptr = ptr->next; //This is how you incrememnt with lists
+		ptr = ptr->next;
 		val = ptr->data;
 	}
 	return (0);

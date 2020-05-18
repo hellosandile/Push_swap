@@ -11,21 +11,8 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void	ft_printlist(struct node *head)
-{
-	struct node *stack;
-
-	stack = head;
-	while (stack != NULL)
-	{
-		printf("%d", stack->data);
-		stack = stack->next;
-	}
-}
-
-int		stacksorted(struct node *head)
+int		ft_stacksorted(struct node *head)
 {
 	struct node *a, *b;
 	a = head;
@@ -38,10 +25,6 @@ int		stacksorted(struct node *head)
 	}
 	return 1;
 }
-
-/*
-IMPORTANT, CHECK ERROR FOR MAX INT!!!!!!!
-*/
 
 int		main(int argc, char **argv)
 {
@@ -86,7 +69,7 @@ int		main(int argc, char **argv)
 				free(temp);
 				return (0);
 			}
-			if (stacksorted(stack))
+			if (ft_stacksorted(stack))
 				{
 					ft_putendl("OK");
 					return 0;
@@ -104,7 +87,7 @@ int		main(int argc, char **argv)
 				}
 				else
 				{
-					if (ft_strequ(instr, "done"))
+					if (ft_strequ(instr, " "))
 						break;
 					if (ft_handle_instr(instr))
 					{
@@ -115,14 +98,14 @@ int		main(int argc, char **argv)
 				ft_follow(&stack, &temp, instr, &size);
 				i++;
 			}
-			if (stacksorted(stack) == 1)
+			if (ft_stacksorted(stack) == 1)
 				ft_putendl("OK");
 			else
 				ft_putendl("KO");
 		}
 	}
-	ft_printlist(stack);
-	printf("\n");
+	//ft_printlist(stack);
+	//printf("\n");
 	free(stack);
 	free(temp);
 	return (0);

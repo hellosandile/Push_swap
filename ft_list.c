@@ -12,25 +12,7 @@
 
 #include "push_swap.h"
 
-int			ft_list_size(struct node *head)
-{
-	struct node	*ptr;
-	int			len;
-
-	len = 0;
-	ptr = head;
-	if (ptr != NULL)
-	{
-		while (ptr->next != NULL)
-		{
-			len++;
-			ptr = ptr->next;
-		}
-	}
-	return (len);
-}
-
-int		listsize(struct node *head)
+int		ft_listsize(struct node *head)
 {
 	struct node *begin_list;
 	int i;
@@ -82,7 +64,6 @@ void		ft_remove_first(struct node **head)
 
 	ptr = (*head)->next;
 	*head = ptr;
-	// *head = (*head)->next;
 	return ;
 }
 
@@ -90,11 +71,10 @@ void		ft_remove_last(struct node **head)
 {
 	struct node *ptr;
 
-	//s = 0;
 	ptr = *head;
 	if (!(ptr->next))
-		return ; //if you want it to remove stuff length 1 put it here;
-	while (ptr->next->next) //go until 2nd last
+		return ;
+	while (ptr->next->next)
 		ptr = ptr->next;
 	free(ptr->next);
 	ptr->next = NULL;
@@ -110,15 +90,14 @@ void		ft_populate(stack_a *head, char **stack, int *size)
 	ptr = head;
 	if (ptr != NULL)
 	{
-		ptr->data = ft_atoi(stack[i]); //first value of the stack
+		ptr->data = ft_atoi(stack[i]);
 		ptr->ptr = i;
 		ptr->next = NULL;
 		i++;
 	}
-	//here it is looping through the list till it reaches NULL
 	while (ptr->next != NULL)
 		ptr = ptr->next;
-	ptr->next = malloc(sizeof(stack_a)); //allocating space for the next value
+	ptr->next = malloc(sizeof(stack_a));
 	while (stack[i])
 	{
 		ptr->next->data = ft_atoi(stack[i]);
@@ -128,6 +107,5 @@ void		ft_populate(stack_a *head, char **stack, int *size)
 		i++;
 	}
 	ptr->next = NULL;
-	*size = i; // Here you now know that the *size is the size of the list which
-	//is the end result of i
+	*size = i; 
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	initialize(struct node  **head, char **data)
+void	ft_initialize(struct node  **head, char **data)
 {
 	struct node *stack;
 
@@ -34,20 +34,7 @@ void	initialize(struct node  **head, char **data)
 	stack->next = NULL;
 }
 
-void	ft_printlist(struct node *head)
-{
-	struct node *stack;
-
-	stack = head;
-	while (stack != NULL)
-	{
-		printf("%d", stack->data);
-		printf(" ");
-		stack = stack->next;
-	}
-}
-
-int		head_g_last(struct node **head)
+int		ft_head_g_last(struct node **head)
 {
 	struct node *stack;
 	int 		head_value;
@@ -63,8 +50,7 @@ int		head_g_last(struct node **head)
 	return (0);
 }
 
-
-int		max(struct node **head)
+int		ft_max(struct node **head)
 {
 	struct node *stack;
 	stack = *head;
@@ -80,7 +66,7 @@ int		max(struct node **head)
 
 }
 
-int		min(struct node **head)
+int		ft_min(struct node **head)
 {
 	struct node *stack;
 	stack = *head;
@@ -95,7 +81,7 @@ int		min(struct node **head)
 	return (min);
 }
 
-int		mid(int size)
+int		ft_mid(int size)
 {
 	if ((size % 2) == 0)
 		return (size / 2);
@@ -103,15 +89,14 @@ int		mid(int size)
 		return ((size / 2) + 1);
 }
 
-
-void		get_biggest(struct node **head)
+void		ft_get_biggest(struct node **head)
 {
 	struct node  *stack;
 	int	back = 0;
 	int	front = 0;
 	int	value;
 	stack = *head;
-	if (listsize(stack) == 0)
+	if (ft_listsize(stack) == 0)
 		return ;
 	value = stack->data;
 	while (stack->next != NULL)
@@ -138,7 +123,7 @@ void		get_biggest(struct node **head)
 		{
 			if (!ft_sorted_desc((stack_b *)*head))
 				return;
-			ft_reverse_b((stack_b **)head, listsize((stack_b *)*head));
+			ft_reverse_b((stack_b **)head, ft_listsize((stack_b *)*head));
 			ft_putendl("rrb");
 		}
 	}
@@ -148,14 +133,14 @@ void		get_biggest(struct node **head)
 		{
 			if (!ft_sorted_desc((stack_b *)*head))
 				return ;
-			ft_shift_b((stack_b **)head, listsize((stack_b *)*head));
+			ft_shift_b((stack_b **)head, ft_listsize((stack_b *)*head));
 			ft_putendl("rb");
 		}
 	}
 }
 
 
-int		last(struct node **head)
+int		ft_last(struct node **head)
 {
 	struct node *stack;
 	stack = *head;
@@ -164,7 +149,7 @@ int		last(struct node **head)
 	return (stack->data);
 }
 
-int		last_g_middle(struct node **head)
+int		ft_last_g_middle(struct node **head)
 {
 	struct node *stack;
 	int middle_value;
@@ -174,12 +159,12 @@ int		last_g_middle(struct node **head)
 	middle_value = stack->next->data;
 	while (stack->next != NULL)
 		stack = stack->next;
-	if (stack->data > middle_value) //tail > middle
+	if (stack->data > middle_value)
 		return 1;
 	return 0;
 }
 
-int		middle_g_last(struct node **head)
+int		ft_middle_g_last(struct node **head)
 {
 	struct node *stack;
 	int middle_value;
@@ -193,7 +178,7 @@ int		middle_g_last(struct node **head)
 	return 0;
 }
 
-int		head_g_middle(struct node **head)
+int		ft_head_g_middle(struct node **head)
 {
 	struct node *stack;
 	int		head_value;
@@ -208,7 +193,7 @@ int		head_g_middle(struct node **head)
 }
 
 
-int		stacksorted(struct node *head)
+int		ft_stacksorted(struct node *head)
 {
 	struct node *a, *b;
 	a = head;
@@ -221,22 +206,8 @@ int		stacksorted(struct node *head)
 	}
 	return 1;
 }
-/*
-int		desc_stacksorted(struct node *head)
-{
-	struct node *a, *b;
-	a = head;
-	while (a->next != NULL)
-	{
-		b = a->next;
-		if (b->data > a->data)
-			return 0;
-		a = a->next;
-	}
-	return 1;
-}
-*/
-int		*create_range(int min, int max, int size)
+
+int		*ft_create_range(int min, int max, int size)
 {
 	int 	i;
 	int 	r;
@@ -260,7 +231,7 @@ int		*create_range(int min, int max, int size)
 	return(range);
 }
 
-int		*create_big_range(int min, int max, int size)
+int		*ft_create_big_range(int min, int max, int size)
 {
 	int 	i;
 	int 	r;
@@ -334,7 +305,7 @@ int			ft_less_value(stack_a *head, int size)
 	return (1);
 }
 
-void		sort_more_than_100(stack_a **a, stack_b **b)
+void		ft_sort_more_than_100(stack_a **a, stack_b **b)
 {
 	int	maxi;
 	int	mini;
@@ -345,11 +316,11 @@ void		sort_more_than_100(stack_a **a, stack_b **b)
 
 	i = 0;
 	list = *a;
-	mini = min(&list);
-	maxi = max(&list);
+	mini = ft_min(&list);
+	maxi = ft_max(&list);
 
-	range = create_big_range(mini, maxi, listsize(list));
-	size = listsize(list);
+	range = ft_create_big_range(mini, maxi, ft_listsize(list));
+	size = ft_listsize(list);
 	while ( size > 1)
 	{
 		list = *a;
@@ -358,11 +329,11 @@ void		sort_more_than_100(stack_a **a, stack_b **b)
 		{
 			if (list->data >= mini && list->data < *range)
 			{
-				if (mid(size) >= i)
+				if (ft_mid(size) >= i)
 				{
 					while (i-- > 1)
 					{
-						ft_shift_a(a, listsize(*a));
+						ft_shift_a(a, ft_listsize(*a));
 						ft_putendl("ra");
 					}
 					i = 0;
@@ -371,12 +342,12 @@ void		sort_more_than_100(stack_a **a, stack_b **b)
 				{
 					while (i-- > 0)
 					{
-						ft_reverse_a(a, listsize(*a));
+						ft_reverse_a(a, ft_listsize(*a));
 						ft_putendl("rra");
 					}
 					i = 0;
 				}
-				get_biggest(b);
+				ft_get_biggest(b);
 				ft_push_b(a, b);
 				ft_putendl("pb");
 				list = *a;
@@ -388,41 +359,41 @@ void		sort_more_than_100(stack_a **a, stack_b **b)
 		mini = *range;
 		range++;
 	}
-	while (listsize(*b) > 0)
+	while (ft_listsize(*b) > 0)
 	{
-		get_biggest(b);
+		ft_get_biggest(b);
 		ft_push_a(a, b);
 		ft_putendl("pa");
 		if (ft_big_value(*a))
 		{
-			if (!stacksorted(*a))
+			if (!ft_stacksorted(*a))
 			{
 				ft_putendl("ra");
-				ft_shift_a(a, listsize(*a));
+				ft_shift_a(a, ft_listsize(*a));
 			}
 		}
 
-		if (ft_less_value(*a, listsize(*a)))
+		if (ft_less_value(*a, ft_listsize(*a)))
 		{
-			if (!stacksorted(*a))
+			if (!ft_stacksorted(*a))
 			{
 				ft_putendl("rra");
-				ft_reverse_a(a, listsize(*a));
+				ft_reverse_a(a, ft_listsize(*a));
 			}
 		}
 
-		if (ft_first_sec_value(*a, listsize(*a)))
+		if (ft_first_sec_value(*a, ft_listsize(*a)))
 		{
-			if (!stacksorted(*a))
+			if (!ft_stacksorted(*a))
 			{
-				ft_swap_a(a, listsize(*a));
+				ft_swap_a(a, ft_listsize(*a));
 				ft_putendl("sa");
 			}
 		}
 	}
 }
 
-void		sort100(stack_a **a, stack_b **b)
+void		ft_sort_100(stack_a **a, stack_b **b)
 {
 	int	maxi;
 	int	mini;
@@ -433,11 +404,11 @@ void		sort100(stack_a **a, stack_b **b)
 
 	i = 0;
 	list = *a;
-	mini = min(&list);
-	maxi = max(&list);
+	mini = ft_min(&list);
+	maxi = ft_max(&list);
 
-	range = create_range(mini, maxi, listsize(list));
-	size = listsize(list);
+	range = ft_create_range(mini, maxi, ft_listsize(list));
+	size = ft_listsize(list);
 	while ( size > 1)
 	{
 		list = *a;
@@ -447,11 +418,11 @@ void		sort100(stack_a **a, stack_b **b)
 		{
 			if (list->data >= mini && list->data < *range)
 			{
-				if (mid(size) >= i)
+				if (ft_mid(size) >= i)
 				{
 					while (i-- > 1)
 					{
-						ft_shift_a(a, listsize(*a));
+						ft_shift_a(a, ft_listsize(*a));
 						ft_putendl("ra");
 					}
 					i = 0;
@@ -460,12 +431,12 @@ void		sort100(stack_a **a, stack_b **b)
 				{
 					while (i-- > 0)
 					{
-						ft_reverse_a(a, listsize(*a));
+						ft_reverse_a(a, ft_listsize(*a));
 						ft_putendl("rra");
 					}
 					i = 0;
 				}
-				get_biggest(b);
+				ft_get_biggest(b);
 				ft_push_b(a, b);
 				ft_putendl("pb");
 				list = *a;
@@ -477,70 +448,68 @@ void		sort100(stack_a **a, stack_b **b)
 		mini = *range;
 		range++;
 	}
-	while (listsize(*b) > 0)
+	while (ft_listsize(*b) > 0)
 	{
-		get_biggest(b);
+		ft_get_biggest(b);
 		ft_push_a(a, b);
 		ft_putendl("pa");
 		if (ft_big_value(*a))
 		{
-			if (!stacksorted(*a))
+			if (!ft_stacksorted(*a))
 			{
 				ft_putendl("ra");
-				ft_shift_a(a, listsize(*a));
+				ft_shift_a(a, ft_listsize(*a));
 			}
 		}
 
-		if (ft_less_value(*a, listsize(*a)))
+		if (ft_less_value(*a, ft_listsize(*a)))
 		{
-			if (!stacksorted(*a))
+			if (!ft_stacksorted(*a))
 			{
 				ft_putendl("rra");
-				ft_reverse_a(a, listsize(*a));
+				ft_reverse_a(a, ft_listsize(*a));
 			}
 		}
 
-		if (ft_first_sec_value(*a, listsize(*a)))
+		if (ft_first_sec_value(*a, ft_listsize(*a)))
 		{
-			if (!stacksorted(*a))
+			if (!ft_stacksorted(*a))
 			{
-				ft_swap_a(a, listsize(*a));
+				ft_swap_a(a, ft_listsize(*a));
 				ft_putendl("sa");
 			}
 		}
 	}
 }
 
-
-
-void	sortThree(stack_a **a)
+void	ft_sort_three(stack_a **a)
 {
 	stack_a *list;
 	list = *a;
 
-	while (stacksorted(list) != 1)
+	while (ft_stacksorted(list) != 1)
 	{
-		if (last_g_middle(&list) == 0 && head_g_middle(&list) == 0 && head_g_last(&list) == 1)
+		if (ft_last_g_middle(&list) == 0 && ft_head_g_middle(&list) == 0 && ft_head_g_last(&list) == 1)
 		{
 			ft_reverse_a(&list, 3);
 			ft_putendl("rra");
 		}
-		if (last_g_middle(&list) == 0 && head_g_middle(&list) == 1)
+		if (ft_last_g_middle(&list) == 0 && ft_head_g_middle(&list) == 1)
 		{
 			ft_shift_a(&list, 2);
 			ft_putendl("ra");
 		}
-		if (last_g_middle(&list) == 1 && head_g_last(&list) == 1)
+		if (ft_last_g_middle(&list) == 1 && ft_head_g_last(&list) == 1)
 		{
 			ft_shift_a(&list, 2);
 			ft_putendl("ra");
 		}
-		if (head_g_middle(&list) == 1)
+		if (ft_head_g_middle(&list) == 1)
 		{
 			ft_swap_a(&list, 2);
 			ft_putendl("sa");	
 		}
-		if (head_g_middle(&list) == 0 && last_g_middle(&list) == 0)
+		if (ft_head_g_middle(&list) == 0 && ft_last_g_middle(&list) == 0)
 		{
 			ft_swap_a(&list, 2);
 			ft_putendl("sa");
@@ -549,48 +518,40 @@ void	sortThree(stack_a **a)
 	*a = list;
 }
 
-void	sortFive(stack_a **a, stack_b **b)
+void	ft_sort_five(stack_a **a, stack_b **b)
 {
 	stack_a *list;
 	stack_b *listb;
 	list = *a;
 	listb = *b;
 	
-	while (listsize(list) > 3 && stacksorted(list) == 0)
+	while (ft_listsize(list) > 3 && ft_stacksorted(list) == 0)
 		{
-			if (last(&list) == min(&list))
+			if (ft_last(&list) == ft_min(&list))
 			{
-				ft_reverse_a(&list, listsize(list));
+				ft_reverse_a(&list, ft_listsize(list));
 				ft_putendl("rra");
 			}
-			 if (list->data != min(&list))
+			 if (list->data != ft_min(&list))
 			{
 				ft_shift_a(&list, 2);
 				ft_putendl("ra");
 			}
-			if (list->data == min(&list))
+			if (list->data == ft_min(&list))
 			{
 				ft_push_b(&list, &listb);
 				ft_putendl("pb");
 			}
 		}
-		while (stacksorted(list) != 1)
-			sortThree(&list);
-		while (listsize(listb) > 0)
+		while (ft_stacksorted(list) != 1)
+			ft_sort_three(&list);
+		while (ft_listsize(listb) > 0)
 		{
 			ft_push_a(&list, &listb);
 			ft_putendl("pa");
 		}
-		if (listsize(listb) == 0)
+		if (ft_listsize(listb) == 0)
 			listb = NULL;
 		*a = list;
 		return; 
-}
-
-void	testMedian(struct node *a)
-{
-	stack_a *list = a;
-	int m = getMiddle(list);
-	printf("\n%d\n\n", m);
-	printf("It finally works MOFO \n \n");
 }

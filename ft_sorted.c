@@ -22,7 +22,7 @@ int			ft_sorted(stack_a *head)
 	size = 0;
 	ptr = head;
 	val = ptr->data;
-	size = ft_list_size(head);
+	size = ft_listsize(head);
 	if (size > 0)
 	{
 		while (ptr->next != NULL)
