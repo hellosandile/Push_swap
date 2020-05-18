@@ -70,4 +70,4 @@ ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | wc -l
 * **Sandile Mkhize** -  [@hellosandile](https://twitter.com/hellosandile)
 
 ## Acknowledgments
-* Hive five to everyone at [@WeThinkCode_](https://www.wethinkcode.co.za/) who helped me where I got stuck.
+* Hive five to everyone at [@WeThinkCode_](https://www.wethinkcode.co.za/) who helped me when I was stuck.
