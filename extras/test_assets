@@ -63,3 +63,6 @@ int medianValue(stack_a **head)
     }
 	return(slow_ptr->data);
 }
+
+
+str join and free function for th lists
