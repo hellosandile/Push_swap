@@ -22,8 +22,8 @@ int	main(int ac , char **av)
 	listb = (stack_b *)malloc(sizeof(stack_b));
 	//listb = NULL;
 	char *str;
-	char *strTemp;
-	char *avConcatStr = NULL;
+	char *temp;
+	//char *avConcatStr = NULL;
 	int i;
 	if (ac >= 2)
 	{
@@ -44,14 +44,16 @@ int	main(int ac , char **av)
 			i = 2;
 			while (i < ac)
 			{
-				strTemp = ft_strjoin(str, " ");
-				avConcatStr = ft_strjoin(strTemp, av[i]);
-				str	= avConcatStr;
+				temp = ft_strjoin(str, " ");
+				//free(str);
+				str = ft_strjoin(temp, av[i]);
+				free(temp);
 				i++;
-				free(strTemp);
-				free(avConcatStr);
+				//free(strTemp);
+				//free(avConcatStr);
 			}
 			data = ft_strsplit(str, ' ');
+			free(str);
 		}
 		ft_initialize(&list, data);
 		i = 0;

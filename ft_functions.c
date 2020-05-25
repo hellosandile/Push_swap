@@ -20,14 +20,17 @@ void	ft_initialize(struct node  **head, char **data)
 	stack = *head;
 	stack->data = ft_atoi(data[i]);
 	stack->next = NULL;
-	while (stack->next != NULL)
-		stack = stack->next;
+	//while (stack->next != NULL)
+	//	stack = stack->next;
 	stack->next =  malloc(sizeof(struct node));
 	i = 1;
 	while (data[i] != NULL)
 	{
 		stack->next->data =  ft_atoi(data[i]);
-		stack->next->next = (struct node *)malloc(sizeof(struct node));
+		{
+			if (data[i + 1] != NULL)
+				stack->next->next = (struct node *)malloc(sizeof(struct node));
+		}
 		stack = stack->next;
 		i++;
 	}
