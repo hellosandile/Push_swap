@@ -542,8 +542,10 @@ void	ft_sort_five(stack_a **a, stack_b **b)
 			if (list->data == ft_min(&list))
 			{
 				ft_push_b(&list, &listb);
+				//free(listb);
 				ft_putendl("pb");
 			}
+			//free(listb);
 		}
 		while (ft_stacksorted(list) != 1)
 			ft_sort_three(&list);

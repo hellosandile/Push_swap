@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include <stdio.h>
 
 void	ft_free_linkedlist(struct node *head)
 {
@@ -13,17 +14,30 @@ void	ft_free_linkedlist(struct node *head)
 	}
 }
 
+void	ft_printlist(struct node *head)
+{
+	struct node *stack;
+
+	stack = head;
+	while (stack != NULL)
+	{
+		printf("%d", stack->data);
+		printf(" ");
+		stack = stack->next;
+	}
+}
+
 int	main(int ac , char **av)
 {
 	char **data;
 	stack_a *list;
 	stack_b *listb;
 	list = (stack_a *)malloc(sizeof(stack_a));
-	listb = (stack_b *)malloc(sizeof(stack_b));
-	//listb = NULL;
+//	listb = (stack_b *)malloc(sizeof(stack_b));
+	listb = NULL;
 	char *str;
 	char *temp;
-	//char *avConcatStr = NULL;
+	//char *avConcatStr;
 	int i;
 	if (ac >= 2)
 	{
@@ -33,10 +47,10 @@ int	main(int ac , char **av)
 				i = 0;
 			while(data[i])
 			{
-				free(data[i]);
+			//	free(data[i]);
 				i++;
 			}
-		free(data);
+		//free(data);
 			}
 		else
 		{
@@ -45,9 +59,13 @@ int	main(int ac , char **av)
 			while (i < ac)
 			{
 				temp = ft_strjoin(str, " ");
-				//free(str);
+				if (i > 2)
+					free(str);
 				str = ft_strjoin(temp, av[i]);
 				free(temp);
+				//temp = str;
+				//free(str);
+				//free(str);
 				i++;
 				//free(strTemp);
 				//free(avConcatStr);
@@ -77,6 +95,12 @@ int	main(int ac , char **av)
 		if (ft_listsize(list) > 100 && ft_stacksorted(list) == 0)
 			ft_sort_more_than_100(&list, &listb);
     }
+	//printf("Final list contents of stack_a: ");
+	//ft_printlist(list);
+	//printf("\n");
+//	printf("Final list contents of stack_b: ");
+	//ft_printlist(listb);
+	//printf("\n");
 	ft_free_linkedlist(list);
 	ft_free_linkedlist(listb);
 	
