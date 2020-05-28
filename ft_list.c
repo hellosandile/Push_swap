@@ -12,6 +12,19 @@
 
 #include "push_swap.h"
 
+void	ft_free_linkedlist(struct node *head)
+{
+	struct node *temp;
+	temp = head;
+
+	while (head != NULL)
+	{
+		temp = head;
+		head = head->next;
+		free(temp);
+	}
+}
+
 int		ft_listsize(struct node *head)
 {
 	struct node *begin_list;
@@ -52,17 +65,20 @@ void		ft_add_first(struct node **head, int value)
 
 	item = malloc(sizeof(struct node));
 	item->data = value;
-	item->ptr = 0;
+	//item->ptr = 0;
 	item->next = *head;
 	*head = item;
+	
 	return ;
 }
 
 void		ft_remove_first(struct node **head)
 {
 	struct node	*ptr;
+	
 
 	ptr = (*head)->next;
+	free(*head);
 	*head = ptr;
 	return ;
 }

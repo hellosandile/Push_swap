@@ -82,4 +82,6 @@ int 		ft_median_value(stack_a **head);
 int			ft_big_value(stack_a *head);
 int			ft_first_sec_value(stack_a *head, int size);
 int			ft_less_value(stack_a *head, int size);
+void	ft_free_linkedlist(struct node *head);
+
 #endif
