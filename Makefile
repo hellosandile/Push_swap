@@ -18,7 +18,7 @@ SRC = checker.c ft_swap.c ft_push.c ft_rotate.c \
 	  ft_reverse.c ft_list.c ft_errors.c ft_handle_errors.c \
 	  get_next_line/get_next_line.c ft_follow_instr.c ft_sorted.c
 
-PUSH = ft_functions.c ft_algorithm.c
+PUSH = ft_functions.c main.c
 
 SWAP_OBJ = $(PUSH:.c=.o)
 

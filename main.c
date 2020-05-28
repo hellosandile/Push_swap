@@ -1,18 +1,4 @@
 #include "push_swap.h"
-#include <stdio.h>
-
-void	ft_printlist(struct node *head)
-{
-	struct node *stack;
-
-	stack = head;
-	while (stack != NULL)
-	{
-		printf("%d", stack->data);
-		printf(" ");
-		stack = stack->next;
-	}
-}
 
 int	main(int ac , char **av)
 {
@@ -27,16 +13,7 @@ int	main(int ac , char **av)
 	if (ac >= 2)
 	{
 		if (ac == 2)
-			{
-				data = ft_strsplit(av[1], ' ');
-				//i = 0;
-			//while(data[i])
-			//{
-			//	free(data[i]);
-				//i++;
-			//}
-		//free(data);
-			}
+			data = ft_strsplit(av[1], ' ');
 		else
 		{
 			str = av[1];
@@ -81,5 +58,5 @@ int	main(int ac , char **av)
 	ft_free_linkedlist(list);
 	ft_free_linkedlist(listb);
  	return 0;
-	 
+
 }

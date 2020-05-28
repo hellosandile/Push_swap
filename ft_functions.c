@@ -12,6 +12,19 @@
 
 #include "push_swap.h"
 
+void	ft_printlist(struct node *head)
+{
+	struct node *stack;
+
+	stack = head;
+	while (stack != NULL)
+	{
+		printf("%d", stack->data);
+		printf(" ");
+		stack = stack->next;
+	}
+}
+
 void	ft_initialize(struct node  **head, char **data)
 {
 	struct node *stack;
@@ -20,8 +33,6 @@ void	ft_initialize(struct node  **head, char **data)
 	stack = *head;
 	stack->data = ft_atoi(data[i]);
 	stack->next = NULL;
-	//while (stack->next != NULL)
-	//	stack = stack->next;
 	stack->next =  malloc(sizeof(struct node));
 	i = 1;
 	while (data[i] != NULL)
