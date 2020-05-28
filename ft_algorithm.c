@@ -81,4 +81,5 @@ int	main(int ac , char **av)
 	ft_free_linkedlist(list);
 	ft_free_linkedlist(listb);
  	return 0;
+	 
 }
