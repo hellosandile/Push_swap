@@ -31,14 +31,14 @@ void		ft_push_a(stack_a **a, stack_b **b)
 
 void		ft_push_b(stack_a **a, stack_b **b)
 {
-	stack_a **pa;
+// 	stack_a **pa;
 	stack_b *pb;
 
 	if (a)
 	{
-		pa = a;
+// 		pa = a;
 		pb = malloc(sizeof(stack_b));
-		pb->data = (*pa)->data;
+		pb->data = a->data;
 		pb->next = *b;
 		*b = pb;
 		ft_remove_first(&*a);
