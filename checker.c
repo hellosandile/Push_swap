@@ -30,20 +30,19 @@ int		main(int argc, char **argv)
 {
 	static stack_a	*stack;
 	static stack_b	*temp;
-	char			**res;
-	char 			*str;
+	char			**res = NULL;
+	char 			*str = NULL;
 	static char		*instr;
 	static int		i;
 	int				size;
 	int j;
-	char			*avConcatStr;
+	//char			*avConcatStr;
+	char			*tempstr;
 	if (argc < 2)
 		return(0);
 	if (argc >= 1 && ft_strequ(argv[1], "") == 0)
 	{
 		if ((stack = malloc(sizeof(stack_a))) == NULL)
-			return (0);
-		if ((temp = malloc(sizeof(stack_b))) == NULL)
 			return (0);
 		i = 1;
 		if (stack != NULL)
@@ -56,21 +55,35 @@ int		main(int argc, char **argv)
 				j = 2;
 				while (j < argc)
 				{
-					str = ft_strjoin(str, " ");
-					avConcatStr = ft_strjoin(str, argv[j]);
-					str	= avConcatStr;
+					
+					tempstr = ft_strjoin(str, " ");
+					if (j > 2)
+						free(str);
+					str = ft_strjoin(tempstr, argv[j]);
+					free(tempstr);
 					j++;
 				}
 			}
 			res = ft_strsplit(str, ' ');
+			free(str);
 			if (ft_handle(stack, res, &size))
 			{
-				free(stack);
-				free(temp);
+				i = 0;
+				while(res[i])
+				{
+					free(res[i]);
+					i++;
+				}
+				free(res);
+				ft_free_linkedlist(stack);
+				ft_free_linkedlist(temp);
+				
 				return (0);
 			}
 			if (ft_stacksorted(stack))
 				{
+					ft_free_linkedlist(stack);
+					ft_free_linkedlist(temp);
 					ft_putendl("OK");
 					return 0;
 				}
@@ -81,6 +94,8 @@ int		main(int argc, char **argv)
 					
 					if (ft_handle_instr(ft_instr(instr)))
 					{
+						ft_free_linkedlist(stack);
+						ft_free_linkedlist(temp);
 						ft_putendl_fd("Error", 2);
 						return (0);
 					}
@@ -92,10 +107,13 @@ int		main(int argc, char **argv)
 					if (ft_handle_instr(instr))
 					{
 						ft_putendl_fd("Error", 2);
+						ft_free_linkedlist(stack);
+						ft_free_linkedlist(temp);
 						return (0);
 					}
 				}
 				ft_follow(&stack, &temp, instr, &size);
+				free(instr);
 				i++;
 			}
 			if (ft_stacksorted(stack) == 1)
@@ -106,7 +124,14 @@ int		main(int argc, char **argv)
 	}
 	//ft_printlist(stack);
 	//printf("\n");
-	free(stack);
-	free(temp);
+	i = 0;
+	while(res[i])
+	{
+		free(res[i]);
+		i++;
+	}
+	free(res);
+	ft_free_linkedlist(stack);
+	ft_free_linkedlist(temp);
 	return (0);
 }

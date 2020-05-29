@@ -104,6 +104,26 @@ void		ft_populate(stack_a *head, char **stack, int *size)
 
 	i = 0;
 	ptr = head;
+
+	ptr->data = ft_atoi(stack[i]);
+	ptr->next = NULL;
+	ptr->next =  malloc(sizeof(struct node));
+	i = 1;
+	while (stack[i] != NULL)
+	{
+		ptr->next->data =  ft_atoi(stack[i]);
+		ptr->next->ptr = i;
+		{
+			if (stack[i + 1] != NULL)
+				ptr->next->next = (struct node *)malloc(sizeof(struct node));
+		}
+		ptr = ptr->next;
+		i++;
+	}
+	ptr->next = NULL;
+
+/* 
+
 	if (ptr != NULL)
 	{
 		ptr->data = ft_atoi(stack[i]);
@@ -111,17 +131,16 @@ void		ft_populate(stack_a *head, char **stack, int *size)
 		ptr->next = NULL;
 		i++;
 	}
-	while (ptr->next != NULL)
-		ptr = ptr->next;
 	ptr->next = malloc(sizeof(stack_a));
 	while (stack[i])
 	{
 		ptr->next->data = ft_atoi(stack[i]);
 		ptr->next->ptr = i;
-		ptr->next->next = malloc(sizeof(stack_a));
+		if (stack[i + 1] != NULL)
+			ptr->next->next = malloc(sizeof(stack_a));
 		ptr = ptr->next;
 		i++;
 	}
-	ptr->next = NULL;
+	ptr->next = NULL; */
 	*size = i; 
 }

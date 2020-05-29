@@ -36,10 +36,16 @@ int			ft_parse_int(char *value)
 int			ft_range(char *value)
 {
 	int		num;
+	char	*temp;
 
 	num = ft_atoi(value);
-	if (ft_strequ(value, ft_itoa(num)))
+	temp = ft_itoa(num);
+	if (ft_strequ(value, temp))
+	{
+		free(temp);
 		return (1);
+	}
+	free(temp);
 	return (0);
 }
 
