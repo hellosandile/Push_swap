@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	ft_printlist(struct node *head)
 {
@@ -226,7 +227,7 @@ int		*ft_create_range(int min, int max, int size)
 	int 	r;
 	int	max_f;
 	int	*range = NULL;
-	int *temp;
+	//int *temp;
 
 	if (size >= 50 && size <= 100)
 	{
@@ -242,9 +243,8 @@ int		*ft_create_range(int min, int max, int size)
 			range[i] = range[i - 1] + max_f;
 		range[i] = max;
 		}
-	temp = range;
-	free(range);
-	return(temp);
+	
+	return(range);
 }
 
 int		*ft_create_big_range(int min, int max, int size)
@@ -271,6 +271,7 @@ int		*ft_create_big_range(int min, int max, int size)
 	}
 	temp = range;
 	free(range);
+	//range = temp;
 	return(temp);
 }
 
@@ -410,7 +411,6 @@ void		ft_sort_more_than_100(stack_a **a, stack_b **b)
 			}
 		}
 	}
-	free(range);
 }
 
 void		ft_sort_100(stack_a **a, stack_b **b)
@@ -426,8 +426,22 @@ void		ft_sort_100(stack_a **a, stack_b **b)
 	list = *a;
 	mini = ft_min(&list);
 	maxi = ft_max(&list);
-
-	range = ft_create_range(mini, maxi, ft_listsize(list));
+	
+	int *tempp = NULL;
+	tempp = ft_create_range(mini, maxi, ft_listsize(list));
+	range = tempp;
+	tempp = NULL;
+	//free(tempp++);
+	/* printf("Range------: %lu", sizeof(range));
+	int loop;
+	for(loop = 0; loop < 10; loop++)
+      printf("\n%d\n ", range[loop]);
+	
+	printf("Temp------: %lu", sizeof(tempp));
+	
+	for(loop = 0; loop < 10; loop++)
+      printf("\n%d\n ", tempp[loop]); */
+	
 	size = ft_listsize(list);
 	while ( size > 1)
 	{
@@ -481,7 +495,6 @@ void		ft_sort_100(stack_a **a, stack_b **b)
 				ft_shift_a(a, ft_listsize(*a));
 			}
 		}
-
 		if (ft_less_value(*a, ft_listsize(*a)))
 		{
 			if (!ft_stacksorted(*a))

@@ -38,7 +38,7 @@ puts
 
 puts "Negative test?? KO expected"
 
-cmd = "valgrind --leak-check=full ./checker 0 9 1 8 2 7 3 6 4 5"
+cmd = "./checker 0 9 1 8 2 7 3 6 4 5"
 Open3.popen2e(cmd) do |_in, stdout_stderr, _pid|
     Thread.new do
         stdout_stderr.each { |l| puts l }

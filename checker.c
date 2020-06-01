@@ -102,7 +102,7 @@ int		main(int argc, char **argv)
 				}
 				else
 				{
-					if (ft_strequ(instr, " "))
+					if (ft_strequ(instr, ""))
 						break;
 					if (ft_handle_instr(instr))
 					{
@@ -122,8 +122,6 @@ int		main(int argc, char **argv)
 				ft_putendl("KO");
 		}
 	}
-	//ft_printlist(stack);
-	//printf("\n");
 	i = 0;
 	while(res[i])
 	{
