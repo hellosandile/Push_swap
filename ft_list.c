@@ -65,7 +65,6 @@ void		ft_add_first(struct node **head, int value)
 
 	item = malloc(sizeof(struct node));
 	item->data = value;
-	//item->ptr = 0;
 	item->next = *head;
 	*head = item;
 	

@@ -28,8 +28,6 @@ void		ft_shift_a(stack_a **a, int s)
 	}
 }
 
-
-
 void		ft_shift_b(stack_b **b, int s)
 {
 	stack_b *ptr;

@@ -34,10 +34,10 @@ int		main(int argc, char **argv)
 	char 			*str = NULL;
 	static char		*instr;
 	static int		i;
-	int				size = 2;
 	int j;
-	//char			*avConcatStr;
+	int				size = 2;
 	char			*tempstr;
+	
 	if (argc < 2)
 		return(0);
 	if (argc >= 1 && ft_strequ(argv[1], "") == 0)

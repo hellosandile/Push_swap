@@ -45,9 +45,9 @@ int	main(int ac , char **av)
 		}
 		if (ft_listsize(list) < 4 && ft_stacksorted(list) == 0)
 			ft_sort_three(&list);
-        if (ft_listsize(list) < 99  && ft_listsize(list) > 3 && ft_stacksorted(list) == 0)
+        if (ft_listsize(list) <= 50  && ft_listsize(list) > 3 && ft_stacksorted(list) == 0)
 			ft_sort_five(&list, &listb);
-		if (ft_listsize(list) == 100 && ft_listsize(list) == 100 && ft_stacksorted(list) == 0)
+		if (ft_listsize(list) <= 100 && ft_listsize(list) > 50 && ft_stacksorted(list) == 0)
 			ft_sort_100(&list, &listb);
 		if (ft_listsize(list) > 100 && ft_stacksorted(list) == 0)
 			ft_sort_more_than_100(&list, &listb);

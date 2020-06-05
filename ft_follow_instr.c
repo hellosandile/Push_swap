@@ -38,19 +38,3 @@ void		ft_follow(stack_a **a, stack_b **b, char *instr, int *s)
 		ft_reverse_both(a, b, *s);
 	return ;
 }
-// Will delete, but this is for printing what is in the stack to track progress
-void		ft_print(struct node **head, int size)
-{
-	struct node *current;
-	
-	current = *head;
-	if (size > 0)
-	{
-		while (size-- > 0)
-		{
-			ft_putstr(ft_itoa(current->data));
-			ft_putchar('\t');
-			current = current->next;
-		}
-	}
-}

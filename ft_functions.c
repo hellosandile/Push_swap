@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	ft_printlist(struct node *head)
 {
@@ -227,7 +226,6 @@ int		*ft_create_range(int min, int max, int size)
 	int 	r;
 	int	max_f;
 	int	*range = NULL;
-	//int *temp;
 
 	if (size >= 50 && size <= 100)
 	{
@@ -253,7 +251,6 @@ int		*ft_create_big_range(int min, int max, int size)
 	int 	r;
 	int	max_f;
 	int	*range = NULL;
-	//int *temp;
 
 	if (size > 100)
 	{
@@ -564,10 +561,8 @@ void	ft_sort_five(stack_a **a, stack_b **b)
 			if (list->data == ft_min(&list))
 			{
 				ft_push_b(&list, &listb);
-				//free(listb);
 				ft_putendl("pb");
 			}
-			//free(listb);
 		}
 		while (ft_stacksorted(list) != 1)
 			ft_sort_three(&list);
