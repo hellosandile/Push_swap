@@ -20,7 +20,7 @@ void		ft_reverse_b(stack_b **b, int s)
 	stack_b *ptr;
 	ptr = *b;
 	
-	if (s > 2)
+	if (s > 1)
 	{
 		while (ptr->next)
 			ptr = ptr->next;

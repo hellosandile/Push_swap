@@ -89,7 +89,7 @@ end
 puts "=====End"
 
 puts "Start testing"
-Open3.popen2e("./push_swap #{ret} | ./checker #{ret}") do |_in, stdout_stderr, _pid|
+Open3.popen2e("valgrind ./push_swap #{ret} | valgrind ./checker #{ret}") do |_in, stdout_stderr, _pid|
     Thread.new do
         stdout_stderr.each { |l| puts l }
     end

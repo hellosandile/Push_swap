@@ -34,7 +34,7 @@ int		main(int argc, char **argv)
 	char 			*str = NULL;
 	static char		*instr;
 	static int		i;
-	int				size;
+	int				size = 2;
 	int j;
 	//char			*avConcatStr;
 	char			*tempstr;
@@ -133,4 +133,3 @@ int		main(int argc, char **argv)
 	ft_free_linkedlist(temp);
 	return (0);
 }
-

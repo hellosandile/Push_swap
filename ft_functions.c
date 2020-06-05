@@ -253,7 +253,7 @@ int		*ft_create_big_range(int min, int max, int size)
 	int 	r;
 	int	max_f;
 	int	*range = NULL;
-	int *temp;
+	//int *temp;
 
 	if (size > 100)
 	{
@@ -269,10 +269,7 @@ int		*ft_create_big_range(int min, int max, int size)
 			range[i] = range[i - 1] + max_f;
 		range[i] = max;
 	}
-	temp = range;
-	free(range);
-	//range = temp;
-	return(temp);
+	return(range);
 }
 
 int			ft_big_value(stack_a *head)
@@ -330,6 +327,7 @@ void		ft_sort_more_than_100(stack_a **a, stack_b **b)
 	int	maxi;
 	int	mini;
 	int	*range;
+	int *temp;
 	int	i;
 	int	size;
 	stack_a *list;
@@ -338,9 +336,11 @@ void		ft_sort_more_than_100(stack_a **a, stack_b **b)
 	list = *a;
 	mini = ft_min(&list);
 	maxi = ft_max(&list);
-
-	range = ft_create_big_range(mini, maxi, ft_listsize(list));
 	size = ft_listsize(list);
+	range = ft_create_big_range(mini, maxi, size);
+	temp = range;
+
+	
 	while ( size > 1)
 	{
 		list = *a;
@@ -411,6 +411,7 @@ void		ft_sort_more_than_100(stack_a **a, stack_b **b)
 			}
 		}
 	}
+	free(temp);
 }
 
 void		ft_sort_100(stack_a **a, stack_b **b)
@@ -427,21 +428,10 @@ void		ft_sort_100(stack_a **a, stack_b **b)
 	mini = ft_min(&list);
 	maxi = ft_max(&list);
 	
-	int *tempp = NULL;
-	tempp = ft_create_range(mini, maxi, ft_listsize(list));
-	range = tempp;
-	tempp = NULL;
-	//free(tempp++);
-	/* printf("Range------: %lu", sizeof(range));
-	int loop;
-	for(loop = 0; loop < 10; loop++)
-      printf("\n%d\n ", range[loop]);
-	
-	printf("Temp------: %lu", sizeof(tempp));
-	
-	for(loop = 0; loop < 10; loop++)
-      printf("\n%d\n ", tempp[loop]); */
-	
+	int *temp;
+	range = ft_create_range(mini, maxi, ft_listsize(list));
+	temp = range;
+
 	size = ft_listsize(list);
 	while ( size > 1)
 	{
@@ -513,6 +503,7 @@ void		ft_sort_100(stack_a **a, stack_b **b)
 			}
 		}
 	}
+	free(temp);
 }
 
 void	ft_sort_three(stack_a **a)

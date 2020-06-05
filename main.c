@@ -52,14 +52,7 @@ int	main(int ac , char **av)
 		if (ft_listsize(list) > 100 && ft_stacksorted(list) == 0)
 			ft_sort_more_than_100(&list, &listb);
     }
-/* 	printf("Final list contents of stack_a: ");
-	ft_printlist(list);
-	printf("\n");
-	printf("Final list contents of stack_b: ");
-	ft_printlist(listb);
-	printf("\n"); */
 	ft_free_linkedlist(list);
 	ft_free_linkedlist(listb);
 	return 0;
-	
 }

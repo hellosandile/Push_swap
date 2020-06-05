@@ -20,7 +20,7 @@ void		ft_swap_a(stack_a **a, int s)
 
 	ptr = a;
 	size = s;
-	if (size > 1 && (*ptr)->next != NULL)
+	if (size > 0 || (*ptr)->next != NULL)
 	{
 		temp = (*ptr)->data;
 		(*ptr)->data = (*ptr)->next->data;
@@ -33,7 +33,7 @@ void		ft_swap_b(stack_b **b, int s)
 	stack_b **ptr;
 	int		temp;
 
-	if (s > 1)
+	if (s > 0)
 	{
 		ptr = b;
 		temp = (*ptr)->data;

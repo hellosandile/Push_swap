@@ -37,9 +37,11 @@ int			ft_range(char *value)
 {
 	int		num;
 	char	*temp;
+	char	*tempp;
 
 	num = ft_atoi(value);
 	temp = ft_itoa(num);
+	tempp = temp;
 	if (ft_strequ(value, temp))
 	{
 		free(temp);

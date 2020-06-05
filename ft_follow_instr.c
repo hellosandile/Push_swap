@@ -27,13 +27,13 @@ void		ft_follow(stack_a **a, stack_b **b, char *instr, int *s)
 	else if (ft_strequ(instr, "ra"))
 		ft_shift_a(a, *s);
 	else if (ft_strequ(instr, "rb"))
-		ft_shift_b(b, stack_b_size(""));
+		ft_shift_b(b, 2);
 	else if (ft_strequ(instr, "rr"))
 		ft_shift_both(a, b, *s);
 	else if (ft_strequ(instr, "rra"))
 		ft_reverse_a(a, *s);
 	else if (ft_strequ(instr, "rrb"))
-		ft_reverse_b(b, stack_b_size(""));
+		ft_reverse_b(b, 2);
 	else if (ft_strequ(instr, "rrr"))
 		ft_reverse_both(a, b, *s);
 	return ;
